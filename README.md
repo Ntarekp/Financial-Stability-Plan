@@ -1,65 +1,58 @@
 # Financial Stability & Enterprise Strategy // RCA 2026
 
-A high-performance, 15-phase granular financial transformation framework designed for the Rwanda Coding Academy. This interactive presentation utilizes a "Prezi-style" 3D parallax architecture to justify a 1.5M RWF seed fund allocation, showcasing the transition from a deficit state to a sustainable prosperity engine.
+A high-performance, 15-phase granular financial transformation framework designed for the Rwanda Coding Academy. This project justifies a **1,500,000 RWF** seed fund allocation to transition from a monthly deficit to a **125,000 RWF** monthly prosperity surplus.
 
-## 🚀 Key Features
+## 📈 Strategic Financial Overview
 
-- **15-Phase Granular Flow:** Every financial figure is justified through dedicated audit slides and high-visibility ledger tables.
-- **3D Parallax Architecture:** An immersive, coordinate-based navigation system using Framer Motion for cinematic section transitions.
-- **Dual-Theme Intelligence:** Professional Light Mode (Blueprint style) and high-performance Dark Mode (Tactical style) with a persistent theme toggle.
-- **Ledger-Style Visualization:** Precision financial tables with vertical grid lines and right-aligned currency for professional auditing.
-- **Cinematic Media Integration:** 
-  - Vertical "Reels-style" bio-tech production feed.
-  - 3D floating product showcase on the home screen.
-  - High-impact material sourcing imagery.
-- **Interactive Growth Signal:** Animated increment arrows and growth callouts visualizing a 333% revenue expansion.
+### 1. Current State (The Deficit)
+- **Monthly Income:** 60,000 RWF (Allowance, Weekend Work, Shop Job)
+- **Monthly Expenses:** 80,000 RWF (Transport, Sustenance, Data)
+- **Net Position:** **-20,000 RWF (Critical Leakage)**
 
-## 🛠️ Tech Stack
+### 2. Debt Liquidation & Support Allocation
+- **Existing Debt:** 150,000 RWF (Aline, Eric, Patrick) - **Eliminated immediately.**
+- **Emergency Fund:** 150,000 RWF - **Liquidity buffer secured.**
+- **Business CAPEX:** 1,200,000 RWF - **Revenue engines launched.**
 
-- **Framework:** React 19 (TypeScript)
-- **Styling:** TailwindCSS 4
-- **Animations:** Framer Motion (motion/react)
-- **Charts:** Recharts
-- **Icons:** Lucide React
-- **Build Tool:** Vite
+### 3. Business Portfolio 01: Upcycled Denim
+- **Model:** Transforming second-hand jeans into premium reusable bags via tailor partnerships.
+- **Material Budget:** 205,000 RWF (Jeans, Zippers, Hardware, Packaging).
+- **Labour Logic:** 140,000 RWF (40 units @ 3,500 RWF per bag).
+- **Yield:** **55,000 RWF Net Profit** per cycle.
 
-## 📁 Project Structure
+### 4. Business Portfolio 02: Bio-Tech (BSF Farming)
+- **Model:** Industrial protein conversion using Black Soldier Fly larvae (BSFL).
+- **Setup Budget:** 650,000 RWF (Farm Shed, Trays, Breeding Cages, Logistics).
+- **Production Target:** 70KG / Month @ 2,500 RWF/KG.
+- **Yield:** **145,000 RWF Net Profit** (Post 30K Ops Cost).
 
-- `/src/App.tsx`: Core logic, state management, and 15-phase content definition.
-- `/src/index.css`: Global Tailwind configuration and core theme variables.
-- `/public/images/`: High-resolution product assets and bio-tech production video.
-- `/src/lib/utils.ts`: Utility functions for class merging (shadcn/ui style).
+### 5. Target State (The Prosperity Engine)
+- **New Monthly Income:** **260,000 RWF**
+- **Revised Expenditure:** 135,000 RWF (Including reinvestment & buffer).
+- **Wealth Creation:** **125,000 RWF Monthly Surplus.**
+- **12-Month Accumulation:** **480,000 RWF** Stability Fund goal.
 
-## 💻 Local Development
+## 🚀 Interactive Features
 
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   ```
+- **15-Phase Prezi Architecture:** Cinematic 3D navigation using Framer Motion.
+- **Dual-Theme Toggle:** Light (Blueprint) and Dark (Tactical) modes.
+- **Ledger-Style Tables:** Vertical grid lines and right-aligned currency for auditing.
+- **Live Production Feeds:** Vertical cinematic video and 3D product floating.
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+## 💻 Technical Setup
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+```bash
+# Install dependencies
+npm install
 
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
+# Launch development server
+npm run dev
 
-## ⌨️ Controls
-
-- **Advance:** `ArrowRight` or `Space`
-- **Reverse:** `ArrowLeft`
-- **Navigation:** Discreet UI pod in the bottom-right corner.
-- **Theme:** Sun/Moon toggle in the top-right corner.
+# Generate production build
+npm run build
+```
 
 ---
 
 **Confidential Investor Proposal // RCA FY26**  
-Developed for elite financial strategy and operational transparency.
+*Precision Engineering for Capital Stability.*
