@@ -284,58 +284,52 @@ export default function App() {
       y: 2000,
       scale: 1,
       component: (
-        <div className="relative w-full max-w-7xl px-6 lg:px-12 flex flex-col items-center min-h-[90vh] justify-center">
-          {/* Background Parallax Images - Refined Placement */}
-          <div className="absolute inset-0 pointer-events-none -z-10 overflow-visible">
+        <div className="relative w-full max-w-7xl px-6 lg:px-8 flex flex-col items-center min-h-[85vh] justify-center">
+          {/* Decoupled Background Layer - Truly unrelated to foreground flow */}
+          <div className="absolute inset-0 pointer-events-none -z-20 overflow-visible select-none">
              <motion.div 
-               initial={{ opacity: 0, x: 150, y: 120, rotate: -5 }}
-               whileInView={{ opacity: 0.9, x: -100, y: 0, rotate: -10 }}
-               transition={{ duration: 4, ease: "easeOut" }}
-               className="absolute left-[-15%] bottom-[12%] w-[800px] h-[800px]"
+               initial={{ opacity: 0, x: 200, y: 150, rotate: -5 }}
+               whileInView={{ opacity: 0.7, x: -200, y: 100, rotate: -12 }}
+               transition={{ duration: 6, ease: "easeOut" }}
+               className="absolute left-[-25%] bottom-0 w-[700px] h-[700px]"
              >
                 <img src="/images/collected-jeans-pile.png" alt="" className="w-full h-full object-contain" />
              </motion.div>
-             <motion.div 
-               initial={{ opacity: 0, x: 100, y: -50, rotate: 10 }}
-               whileInView={{ opacity: 0.8, x: 250, y: 150, rotate: 15 }}
-               transition={{ duration: 5, ease: "easeOut", delay: 0.2 }}
-               className="absolute right-[-5%] top-[12%] w-[500px] h-[500px]"
-             >
-                <img src="/images/bag0.png" alt="" className="w-full h-full object-contain drop-shadow-2xl" />
-             </motion.div>
           </div>
-
-          <div className="w-full relative z-10 flex flex-col gap-8">
-            <div className="space-y-2 text-center lg:text-right">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic leading-none">Material <span className="text-indigo-600 underline decoration-zinc-100 dark:decoration-zinc-800 decoration-4 underline-offset-4">INPUTS</span></h2>
-              <p className="text-zinc-500 dark:text-zinc-400 text-lg lg:text-xl font-bold uppercase tracking-tight">Granular material cost justification for Portfolio 01.</p>
+          <div className="w-full relative z-10 flex flex-col items-center gap-10">
+            <div className="space-y-3 text-center">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic leading-none">Material <span className="text-indigo-600 underline decoration-zinc-950/10 dark:decoration-white/10 decoration-4 underline-offset-4">INPUTS</span></h2>
+              <p className="text-zinc-600 dark:text-zinc-400 text-lg lg:text-xl font-bold uppercase tracking-tight">Granular material cost justification for Portfolio 01.</p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-               <div className="lg:col-span-8">
-                  <Table 
-                    headers={['Required Material', 'Budget (RWF)']}
-                    rows={[
-                      ['Second-hand Jeans', '50,000'],
-                      ['Zippers & Thread', '20,000'],
-                      ['Inner Lining Fabric', '15,000'],
-                      ['Handles & Straps', '10,000'],
-                      ['Labels & Branding', '10,000'],
-                      ['Packaging', '20,000'],
-                      ['Marketing & Transport', '40,000'],
-                      ['Reserve Buffer', '40,000'],
-                      [<span className="text-indigo-600 font-black uppercase text-[10px]">Total CAPEX</span>, <span className="text-indigo-600 font-black text-2xl">205,000</span>]
-                    ]}
-                    highlightLast
-                  />
+            <div className="w-full max-w-4xl flex flex-col items-center gap-12">
+               <div className="w-full flex justify-center">
+                  <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] dark:shadow-none border-2 border-zinc-950 dark:border-zinc-700 overflow-hidden transition-all hover:scale-[1.01] scale-90 md:scale-95 lg:scale-100 origin-center">
+                    <Table 
+                      headers={['Required Material', 'Budget (RWF)']}
+                      rows={[
+                        ['Second-hand Jeans', '50,000'],
+                        ['Zippers & Thread', '20,000'],
+                        ['Inner Lining Fabric', '15,000'],
+                        ['Handles & Straps', '10,000'],
+                        ['Labels & Branding', '10,000'],
+                        ['Packaging', '20,000'],
+                        ['Marketing & Transport', '40,000'],
+                        ['Reserve Buffer', '40,000'],
+                        [<span className="text-indigo-600 dark:text-indigo-400 font-black uppercase text-[10px]">Total CAPEX</span>, <span className="text-indigo-600 dark:text-indigo-400 font-black text-2xl">205,000</span>]
+                      ]}
+                      highlightLast
+                    />
+                  </div>
                </div>
-               <div className="lg:col-span-4 h-full">
-                  <div className="p-6 lg:p-8 rounded-3xl bg-white/60 dark:bg-zinc-900/60 backdrop-blur-2xl border-4 border-zinc-100 dark:border-zinc-800 shadow-2xl space-y-4 lg:space-y-6 transition-colors h-full flex flex-col justify-center text-center lg:text-right">
-                     <div className="w-12 h-1 bg-indigo-600 rounded-full mx-auto lg:ml-auto lg:mr-0" />
-                     <p className="text-xl lg:text-2xl font-black text-zinc-950 dark:text-white uppercase tracking-tighter leading-tight italic">
+               
+               <div className="max-w-4xl w-full">
+                  <div className="p-4 lg:p-6 space-y-4 transition-colors text-center">
+                     <div className="w-16 h-1.5 bg-indigo-600 rounded-full mx-auto" />
+                     <p className="text-2xl lg:text-4xl font-black text-zinc-950 dark:text-white uppercase tracking-tighter leading-tight italic">
                        "Waste transformation into functional assets."
                      </p>
-                     <p className="text-xs lg:text-sm font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest leading-relaxed">
+                     <p className="text-zinc-700 dark:text-zinc-300 text-sm lg:text-lg font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto">
                        Every material is sourced locally, emphasizing durability and aesthetic consistency across the first production cycle.
                      </p>
                   </div>
