@@ -87,24 +87,6 @@ export default function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   // --- Static Data ---
-  const CAPITAL_DATA = [
-    { name: 'Debt Repayment', value: 150000, color: '#ef4444' }, 
-    { name: 'Emergency Fund', value: 150000, color: '#f59e0b' },
-    { name: 'Business Investment', value: 1200000, color: '#10b981' },
-  ];
-
-  const INCOME_GROWTH_DATA = [
-    { name: 'Before Plan', income: 60000 },
-    { name: 'After Plan', income: 225000 },
-  ];
-
-  const SAVINGS_TIMELINE = [
-    { month: '3 Months', savings: 120000 },
-    { month: '6 Months', savings: 240000 },
-    { month: '9 Months', savings: 360000 },
-    { month: '12 Months', savings: 480000 },
-  ];
-
   const next = useCallback(() => setActiveSection((prev) => (prev + 1) % sections.length), []);
   const prev = useCallback(() => setActiveSection((prev) => (prev - 1 + sections.length) % sections.length), []);
 
@@ -150,12 +132,12 @@ export default function App() {
               <TrendingUp className="w-3.5 h-3.5" />
               <span>Investment Proposal // RCA 2026</span>
             </div>
-            <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black text-zinc-950 dark:text-white tracking-[-0.06em] mb-12 leading-[0.8] uppercase mx-auto transition-colors">
+            <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black text-zinc-950 dark:text-white tracking-[-0.06em] mb-12 leading-[0.8] uppercase mx-auto transition-colors text-center">
               Financial <br />
               <span className="text-emerald-500 italic">Stability</span> <br />
               <span className="text-zinc-200 dark:text-zinc-800">& Enterprise</span>
             </h1>
-            <p className="text-zinc-500 dark:text-zinc-400 text-xl md:text-2xl mb-24 max-w-4xl mx-auto font-medium leading-relaxed uppercase tracking-tighter transition-colors">
+            <p className="text-zinc-500 dark:text-zinc-400 text-xl md:text-2xl mb-24 max-w-4xl mx-auto font-medium leading-relaxed uppercase tracking-tighter transition-colors text-center">
               A 17-Phase exhaustive framework to secure long-term capital <br /> stability through strategic production and debt liquidation.
             </p>
           </motion.div>
@@ -169,10 +151,10 @@ export default function App() {
       y: 0,
       scale: 1,
       component: (
-        <div className="w-full max-w-5xl space-y-12 px-6">
+        <div className="w-full max-w-5xl space-y-12 px-6 flex flex-col items-center">
           <div className="space-y-4">
-            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center lg:text-left">Current <span className="text-emerald-500">INCOME</span></h2>
-            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center lg:text-left">Comprehensive breakdown of all monthly revenue sources.</p>
+            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center">Current <span className="text-emerald-500">INCOME</span></h2>
+            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center">Comprehensive breakdown of all monthly revenue sources.</p>
           </div>
           <Table 
             headers={['Revenue Source', 'Justification / Frequency', 'Amount (RWF)']}
@@ -194,10 +176,10 @@ export default function App() {
       y: 0,
       scale: 1,
       component: (
-        <div className="w-full max-w-5xl space-y-12 px-6">
-          <div className="space-y-4">
-            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center lg:text-left">Current <span className="text-rose-500">SPEND</span></h2>
-            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center lg:text-left">Detailed tracking of current monthly operational costs.</p>
+        <div className="w-full max-w-5xl space-y-12 px-6 flex flex-col items-center">
+          <div className="space-y-4 text-center">
+            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center">Current <span className="text-rose-500">SPEND</span></h2>
+            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center">Detailed tracking of current monthly operational costs.</p>
           </div>
           <Table 
             headers={['Expense Category', 'Usage Description', 'Amount (RWF)']}
@@ -241,10 +223,10 @@ export default function App() {
       y: 2000,
       scale: 1,
       component: (
-        <div className="w-full max-w-5xl space-y-12 px-6">
+        <div className="w-full max-w-5xl space-y-12 px-6 flex flex-col items-center">
           <div className="space-y-4">
-            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center lg:text-left">Debt <span className="text-rose-500">SITUATION</span></h2>
-            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center lg:text-left">Audit of existing personal liabilities scheduled for liquidation.</p>
+            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center">Debt <span className="text-rose-500">SITUATION</span></h2>
+            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center">Audit of existing personal liabilities scheduled for liquidation.</p>
           </div>
           <Table 
             headers={['Creditor Person', 'Relationship / Context', 'Debt (RWF)']}
@@ -267,16 +249,16 @@ export default function App() {
       scale: 1,
       component: (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-7xl px-6">
-          <div className="space-y-8">
-            <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase leading-none text-center lg:text-left">Support <br /><span className="text-emerald-500">SPLIT</span></h2>
-            <div className="space-y-4">
+          <div className="space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start">
+            <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase leading-none">Support <br /><span className="text-emerald-500">SPLIT</span></h2>
+            <div className="space-y-4 max-w-md w-full">
               {[
                 { name: 'Debt Repayment', val: '150,000', reason: 'Pay debts immediately' },
                 { name: 'Emergency Fund', val: '150,000', reason: 'Protection buffer' },
                 { name: 'Business Investment', val: '1,200,000', reason: 'Revenue Engines' }
               ].map(item => (
                 <div key={item.name} className="p-6 rounded-xl bg-white dark:bg-zinc-900 border-4 border-zinc-950 dark:border-white flex justify-between items-center shadow-xl transition-colors group">
-                  <div>
+                  <div className="text-left">
                     <span className="text-xl font-black uppercase text-zinc-950 dark:text-white block group-hover:text-emerald-500 transition-colors">{item.name}</span>
                     <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">{item.reason}</span>
                   </div>
@@ -302,23 +284,23 @@ export default function App() {
       y: 2000,
       scale: 1,
       component: (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start w-full max-w-7xl px-6">
-          {/* Background Parallax Raw Material */}
-          <div className="absolute inset-0 pointer-events-none perspective-[1500px] -z-10">
+        <div className="relative w-full max-w-7xl px-6 flex flex-col items-center justify-center min-h-[60vh]">
+          {/* Unconfined Massive Raw Material Pile */}
+          <div className="absolute inset-0 pointer-events-none -z-10 flex items-center justify-start overflow-visible">
              <motion.div 
-               initial={{ opacity: 0, x: -100, rotateY: 30, scale: 0.8 }}
-               whileInView={{ opacity: 0.5, x: -380, rotateY: 15, scale: 1.15 }}
+               initial={{ opacity: 0, scale: 0.5, x: -200 }}
+               whileInView={{ opacity: 0.7, scale: 1.5, x: -300 }}
                transition={{ duration: 3, ease: "easeOut" }}
-               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen max-w-4xl aspect-video hidden lg:block"
+               className="w-full max-w-5xl"
              >
-                <img src="/images/collected-jeans-pile.png" alt="" className="w-full h-full object-contain filter drop-shadow-[0_40px_80px_rgba(0,0,0,0.15)]" />
+                <img src="/images/collected-jeans-pile.png" alt="" className="w-full h-full object-contain filter drop-shadow-[0_60px_100px_rgba(0,0,0,0.2)]" />
              </motion.div>
           </div>
 
-          <div className="lg:col-span-12 space-y-12 relative z-10 flex flex-col items-center">
-            <div className="space-y-4 text-center">
-              <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic leading-none">Jeans Bags <span className="text-indigo-600 underline decoration-zinc-100 dark:decoration-zinc-800 decoration-8 underline-offset-8">& Apparel</span></h2>
-              <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold max-w-2xl mx-auto">Granular material cost justification for Portfolio 01.</p>
+          <div className="w-full max-w-4xl space-y-12 relative z-10 text-center">
+            <div className="space-y-4">
+              <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic leading-none">Material <span className="text-indigo-600 underline decoration-zinc-100 dark:decoration-zinc-800 decoration-8 underline-offset-8 text-center">INPUTS</span></h2>
+              <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold max-w-2xl mx-auto text-center">Granular material cost justification for Portfolio 01.</p>
             </div>
             <Table 
               headers={['Required Material', 'Budget (RWF)', 'Audit Purpose']}
@@ -332,7 +314,7 @@ export default function App() {
                 ['Packaging', '20,000', 'Market Presentation'],
                 ['Marketing & Transport', '40,000', 'Outreach & Logistics'],
                 ['Extra Material Reserve', '50,000', 'Production Buffer'],
-                [<span className="text-indigo-600 font-black uppercase tracking-widest text-[10px]">Total Material Capex</span>, '', <span className="text-indigo-600 font-black text-2xl">205,000</span>]
+                [<span className="text-indigo-600 font-black uppercase tracking-widest text-[10px]">Total Material Capex</span>, '', <span className="text-indigo-600 font-black text-2xl text-center">205,000</span>]
               ]}
               highlightLast
             />
@@ -347,30 +329,40 @@ export default function App() {
       y: 2000,
       scale: 1,
       component: (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-7xl px-6">
-          <div className="space-y-8">
-            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase leading-none text-center lg:text-left">Tailor <br /><span className="text-indigo-600">LOGIC</span></h2>
-            <p className="text-2xl font-bold text-zinc-500 dark:text-zinc-400 max-w-md mx-auto lg:mx-0 text-center lg:text-left italic">Partnership with local tailors for expert manufacturing.</p>
-            <div className="p-8 rounded-xl bg-indigo-600 text-white shadow-2xl relative overflow-hidden group mx-auto lg:mx-0 max-w-md">
-               <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:scale-110 transition-transform">
-                  <ShoppingBag size={120} />
-               </div>
-               <span className="text-xs font-black uppercase tracking-[0.3em] opacity-60">Unit Production Rate</span>
-               <p className="text-6xl font-black tracking-tighter">3,500 <span className="text-xl font-normal">RWF</span></p>
-               <p className="text-sm font-bold mt-2 uppercase tracking-widest text-indigo-200">Per Bag Produced</p>
-            </div>
+        <div className="relative flex flex-col items-center justify-center w-full max-w-7xl px-6 text-center">
+          {/* Persisting Raw Material Anchor - Smaller & Unconfined */}
+          <div className="absolute bottom-0 left-[-10%] pointer-events-none -z-10 p-8">
+             <div className="w-96 md:w-[600px] opacity-20 rotate-[-5deg]">
+                <img src="/images/collected-jeans-pile.png" alt="" className="w-full h-full object-contain" />
+             </div>
           </div>
-          <div className="space-y-8">
-            <Table 
-              headers={['Production Component', 'Quantity / Rate', 'Subtotal']}
-              rows={[
-                ['Target Production Batch', '40 Units', 'Monthly Cycle'],
-                ['Labour Rate per Unit', '3,500 RWF', 'Fixed Contract'],
-                [<span className="text-indigo-600 font-black uppercase text-[10px]">Total Labour Basis</span>, '', <span className="font-black text-3xl">140,000 RWF</span>]
-              ]}
-              highlightLast
-            />
-            <div className="aspect-[4/3] rounded-xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl bg-zinc-50 dark:bg-zinc-900 transition-colors">
+
+          <div className="space-y-10 w-full max-w-5xl flex flex-col items-center">
+            <div className="space-y-3">
+              <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase leading-none text-center italic">Tailor <br /><span className="text-indigo-600">LOGIC</span></h2>
+              <p className="text-2xl font-bold text-zinc-500 dark:text-zinc-400 max-w-md mx-auto text-center italic">Partnership with local tailors for expert manufacturing.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+              <div className="p-8 rounded-xl bg-indigo-600 text-white shadow-3xl relative overflow-hidden group mx-auto w-full max-w-md text-center">
+                 <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:scale-110 transition-transform">
+                    <ShoppingBag size={120} />
+                 </div>
+                 <span className="text-xs font-black uppercase tracking-[0.3em] opacity-60">Unit Production Rate</span>
+                 <p className="text-6xl font-black tracking-tighter">3,500 <span className="text-xl font-normal">RWF</span></p>
+                 <p className="text-sm font-bold mt-2 uppercase tracking-widest text-indigo-200 text-center">Per Bag Produced</p>
+              </div>
+              <Table 
+                headers={['Production Component', 'Quantity / Rate', 'Subtotal']}
+                rows={[
+                  ['Production Target', '40 Bags', 'Monthly Cycle'],
+                  ['Labour Rate per Unit', '3,500 RWF', 'Fixed Contract'],
+                  [<span className="text-indigo-600 font-black uppercase text-[10px]">Total Labour Basis</span>, '', <span className="font-black text-3xl text-center">140,000 RWF</span>]
+                ]}
+                highlightLast
+              />
+            </div>
+            <div className="aspect-[4/3] w-full max-w-md rounded-xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl bg-zinc-50 dark:bg-zinc-900 transition-colors mt-8">
                <img src="/images/bag.png" alt="Finished Product" className="w-full h-full object-contain p-8" />
             </div>
           </div>
@@ -384,17 +376,17 @@ export default function App() {
       y: 2000,
       scale: 1,
       component: (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center w-full max-w-7xl px-6 text-center lg:text-left">
-          <div className="lg:col-span-6 space-y-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center w-full max-w-7xl px-6 text-center lg:text-left mx-auto">
+          <div className="lg:col-span-6 space-y-10 flex flex-col items-center lg:items-start">
             <div className="space-y-4">
                <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} className="inline-flex gap-4 items-center font-black text-[10px] tracking-[0.4em] text-emerald-500 uppercase">
                   <div className="h-0.5 w-12 bg-emerald-500" />
                   Portfolio 02 Introduction
                </motion.div>
-               <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase leading-[0.8] italic">BSF <br /><span className="text-emerald-500">STARTUP</span></h2>
+               <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase leading-[0.8] italic text-center lg:text-left">BSF <br /><span className="text-emerald-500">STARTUP</span></h2>
                <p className="text-3xl font-bold text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">Industrial protein conversion using Black Soldier Fly larvae (BSFL).</p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 w-full max-w-md">
                {["Utilizes 100% Organic Waste", "High-Demand Agricultural Feed", "Zero-Cost Substrate Sourcing"].map((feat) => (
                  <div key={feat} className="flex items-center gap-6 p-6 rounded-xl border-2 border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 shadow-lg group hover:border-emerald-500 transition-colors">
                     <CheckCircle2 className="text-emerald-500 shrink-0 group-hover:scale-110 transition-transform" size={40} />
@@ -405,19 +397,18 @@ export default function App() {
           </div>
 
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, x: 50 }}
-            whileInView={{ opacity: 1, scale: 1, x: 0 }}
-            className="lg:col-span-6 relative aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-[0_60px_120px_rgba(0,0,0,0.4)] bg-zinc-950 max-h-[85vh] w-full transition-colors"
+            layoutId="bsf-video"
+            className="lg:col-span-6 relative aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-[0_60px_120px_rgba(0,0,0,0.4)] bg-zinc-950 max-h-[75vh] w-full transition-colors"
           >
              <video src="/images/bsfl-farming.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover filter contrast-125 brightness-75" />
              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-transparent" />
-             <div className="absolute bottom-12 left-10 right-10">
-                <div className="flex items-center gap-3 mb-3">
+             <div className="absolute bottom-12 left-10 right-10 text-center lg:text-left">
+                <div className="flex items-center gap-3 mb-3 justify-center lg:justify-start">
                    <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse shadow-[0_0_10px_rgba(244,63,94,0.6)]" />
                    <span className="text-[8px] font-black text-white/60 uppercase tracking-[0.4em]">Live Production Feed</span>
                 </div>
-                <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter leading-none mb-1">Biological Conversion</h3>
-                <p className="text-emerald-400 text-[10px] font-black uppercase tracking-widest opacity-60 text-shadow-sm">High-Efficiency Protein Hub</p>
+                <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter leading-none mb-1 text-center lg:text-left">Biological Conversion</h3>
+                <p className="text-emerald-400 text-[10px] font-black uppercase tracking-widest opacity-60 text-shadow-sm text-center lg:text-left">High-Efficiency Protein Hub</p>
              </div>
           </motion.div>
         </div>
@@ -425,15 +416,15 @@ export default function App() {
     },
     {
       id: 'bsf-setup',
-      title: 'Phase 09: Startup COSTS',
+      title: 'Phase 09: BSF Startup Costs',
       x: -5000,
       y: 2000,
       scale: 1,
       component: (
-        <div className="w-full max-w-6xl space-y-12 px-6">
-          <div className="space-y-4">
-            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center lg:text-left">Startup <span className="text-emerald-500">COSTS</span></h2>
-            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center lg:text-left text-shadow-sm">Detailed audit of the 650,000 RWF infrastructure setup cost.</p>
+        <div className="relative w-full max-w-6xl space-y-12 px-6 flex flex-col items-center justify-center">
+          <div className="space-y-4 text-center">
+            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic leading-none text-center">Startup <span className="text-emerald-500 underline decoration-zinc-100 dark:decoration-zinc-800 decoration-8 underline-offset-8">COSTS</span></h2>
+            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center">Detailed audit of the 650,000 RWF infrastructure setup cost.</p>
           </div>
           <Table 
             headers={['Infrastructure Asset', 'Technical Detail / Spec', 'Cost (RWF)']}
@@ -446,10 +437,18 @@ export default function App() {
               ['Waste Logistics Setup', 'Collection & Transport', '72,000'],
               ['Drying Racks', 'Processing Base', '50,000'],
               ['Protective Netting', 'Setup Protection', '15,000'],
-              [<span className="text-emerald-600 font-black uppercase text-[10px]">Total Setup CAPEX</span>, '', <span className="text-emerald-600 font-black text-2xl">650,000</span>]
+              [<span className="text-emerald-600 font-black uppercase text-[10px]">Total Setup CAPEX</span>, '', <span className="text-emerald-600 font-black text-2xl text-center">650,000</span>]
             ]}
             highlightLast
           />
+
+          {/* Surgical 'Needle Hole' Persisting Video - Positioned Safely Bottom Right */}
+          <motion.div 
+            layoutId="bsf-video"
+            className="absolute bottom-4 right-4 w-32 md:w-56 aspect-video rounded-xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl z-20 hidden lg:block grayscale hover:grayscale-0 transition-all duration-700 pointer-events-auto"
+          >
+             <video src="/images/bsfl-farming.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
+          </motion.div>
         </div>
       )
     },
@@ -460,21 +459,21 @@ export default function App() {
       y: 2000,
       scale: 1,
       component: (
-        <div className="relative w-full max-w-7xl px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-10">
+        <div className="relative w-full max-w-7xl px-6 flex flex-col items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+            <div className="space-y-10 text-center lg:text-left flex flex-col items-center lg:items-start">
                <div className="space-y-4 text-center lg:text-left">
                   <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase leading-[0.8] text-center lg:text-left italic transition-colors">Biological <br /><span className="text-emerald-500">YIELD</span></h2>
-                  <p className="text-2xl font-bold text-zinc-500 dark:text-zinc-400">Monthly high-protein production valuation.</p>
+                  <p className="text-2xl font-bold text-zinc-500 dark:text-zinc-400 text-center lg:text-left">Monthly high-protein production valuation.</p>
                </div>
                
-               <div className="flex flex-col sm:flex-row gap-6">
-                  <div className="flex-1 p-10 rounded-xl bg-zinc-950 text-white shadow-2xl relative overflow-hidden transition-colors">
+               <div className="flex flex-col sm:flex-row gap-6 w-full max-w-md lg:max-w-none mx-auto lg:mx-0">
+                  <div className="flex-1 p-10 rounded-xl bg-zinc-950 text-white shadow-2xl relative overflow-hidden transition-colors text-center">
                      <Bug className="absolute -bottom-6 -right-6 w-32 h-32 opacity-10 rotate-12" />
                      <p className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-500 mb-4 text-center">Monthly Target</p>
                      <p className="text-7xl font-black text-center tracking-tighter">70 <span className="text-xl font-normal opacity-50">KG</span></p>
                   </div>
-                  <div className="flex-1 p-10 rounded-xl bg-emerald-500 text-white shadow-2xl transition-colors">
+                  <div className="flex-1 p-10 rounded-xl bg-emerald-500 text-white shadow-2xl transition-colors text-center border-b-8 border-emerald-600">
                      <p className="text-[10px] font-black uppercase tracking-[0.4em] opacity-60 mb-4 text-center">Gross Revenue</p>
                      <p className="text-5xl font-black text-center tracking-tighter">140,000</p>
                      <p className="text-sm font-bold uppercase tracking-widest mt-2 text-center text-emerald-100">70KG @ 2,000 RWF</p>
@@ -482,7 +481,7 @@ export default function App() {
                </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 w-full">
                <h3 className="text-xs font-black text-zinc-500 dark:text-zinc-400 uppercase tracking-[0.4em] flex items-center gap-3 justify-center lg:justify-start">
                  <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
                  Net Bio-Profit Audit
@@ -493,12 +492,20 @@ export default function App() {
                    ['Target Production', 'High-Protein Output', '70 KG'],
                    ['Gross Revenue', '70 KG * 2,000 RWF', '140,000'],
                    ['Operating Costs', 'Logistics & Collection', '30,000'],
-                   [<span className="text-emerald-600 font-black uppercase text-[10px]">Net Monthly Profit</span>, 'Revenue - Costs', <span className="text-emerald-600 font-black text-3xl transition-colors">110,000</span>]
+                   [<span className="text-emerald-600 font-black uppercase text-[10px]">Net Bio-Profit</span>, 'Revenue - Costs', <span className="text-emerald-600 font-black text-3xl transition-colors text-center">110,000</span>]
                  ]}
                  highlightLast
                />
             </div>
           </div>
+          
+          {/* Surgical 'Needle Hole' Persisting Video - Positioned Safely Bottom Left */}
+          <motion.div 
+            layoutId="bsf-video"
+            className="absolute bottom-4 left-4 w-32 md:w-56 aspect-video rounded-xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl z-20 hidden lg:block grayscale hover:grayscale-0 transition-all duration-700 pointer-events-auto"
+          >
+             <video src="/images/bsfl-farming.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
+          </motion.div>
         </div>
       )
     },
@@ -509,14 +516,14 @@ export default function App() {
       y: 4500,
       scale: 1,
       component: (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-7xl px-6">
-          <div className="space-y-8 text-center lg:text-left">
-            <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase leading-none text-center lg:text-left italic transition-colors">Income <br /><span className="text-emerald-500">SHIFT</span></h2>
-            <div className="p-8 rounded-xl bg-emerald-500 text-white shadow-2xl flex items-center gap-8 justify-center lg:justify-start transition-all hover:scale-105">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-7xl px-6 text-center lg:text-left mx-auto">
+          <div className="space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase leading-none italic transition-colors">Income <br /><span className="text-emerald-500">SHIFT</span></h2>
+            <div className="p-8 rounded-xl bg-emerald-500 text-white shadow-2xl flex items-center gap-8 justify-center lg:justify-start transition-all hover:scale-105 group mx-auto lg:mx-0">
                <div className="w-20 h-20 rounded-xl bg-white/20 flex items-center justify-center shadow-lg">
                   <TrendingUp size={40} strokeWidth={3} />
                </div>
-               <div>
+               <div className="text-left">
                   <p className="text-xs font-black uppercase tracking-widest opacity-60">Strategic Growth</p>
                   <p className="text-5xl font-black tracking-tighter">+275% Expansion</p>
                </div>
@@ -528,7 +535,7 @@ export default function App() {
               ['Original Static Income', '60,000'],
               ['Jeans Bag Business (Portfolio 01)', '55,000'],
               ['BSF Farming Business (Portfolio 02)', '110,000'],
-              [<span className="text-emerald-600 font-black uppercase text-[10px]">New Monthly Total</span>, <span className="text-emerald-600 font-black text-3xl">225,000</span>]
+              [<span className="text-emerald-600 font-black uppercase text-[10px]">New Monthly Total</span>, <span className="text-emerald-600 font-black text-3xl text-center">225,000</span>]
             ]}
             highlightLast
           />
@@ -542,10 +549,10 @@ export default function App() {
       y: 4500,
       scale: 1,
       component: (
-        <div className="w-full max-w-5xl space-y-12 px-6">
+        <div className="w-full max-w-5xl space-y-12 px-6 flex flex-col items-center justify-center">
           <div className="space-y-4">
-            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center lg:text-left transition-colors">Expense <span className="text-emerald-500">HYGIENE</span></h2>
-            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center lg:text-left transition-colors text-shadow-sm">Optimized expenditure to ensure maximum surplus compounding.</p>
+            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center transition-colors">Revised <span className="text-emerald-500 underline decoration-zinc-100 dark:decoration-zinc-800 decoration-8 underline-offset-8">EXPENDITURE</span></h2>
+            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center transition-colors">Optimized expenditure to ensure maximum surplus compounding.</p>
           </div>
           <Table 
             headers={['Budget Category', 'Strategic Justification', 'Amount (RWF)']}
@@ -557,7 +564,7 @@ export default function App() {
               ['Emergency Savings', 'Commitment Basis', '10,000'],
               ['Future Stability Fund', 'Wealth Building Basis', '30,000'],
               ['Personal Buffer', 'Incidentals Reserve', '7,000'],
-              [<span className="text-emerald-600 font-black uppercase text-[10px]">Total New Expenses</span>, '', <span className="text-emerald-600 font-black text-2xl">135,000</span>]
+              [<span className="text-emerald-600 font-black uppercase text-[10px]">Total New Expenses</span>, '', <span className="text-emerald-600 font-black text-2xl text-center">135,000</span>]
             ]}
             highlightLast
           />
@@ -571,31 +578,33 @@ export default function App() {
       y: 4500,
       scale: 1,
       component: (
-        <div className="flex flex-col items-center gap-12 text-center px-6">
-          <div className="p-16 rounded-xl bg-emerald-500 text-white shadow-3xl max-w-4xl relative overflow-hidden group transition-colors">
-             <Coins size={120} className="absolute -top-10 -right-10 opacity-20 group-hover:scale-110 transition-transform" />
-             <h2 className="text-5xl font-black mb-4 uppercase italic text-center text-shadow-lg">NET MONTHLY SURPLUS</h2>
+        <div className="flex flex-col items-center gap-12 text-center px-6 mx-auto">
+          <div className="p-16 rounded-xl bg-emerald-500 text-white shadow-3xl max-w-4xl relative overflow-hidden group transition-colors mx-auto w-full">
+             <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -top-10 -right-10 opacity-20">
+                <Coins size={120} />
+             </motion.div>
+             <h2 className="text-5xl font-black mb-4 uppercase italic text-center text-shadow-lg leading-none">NET MONTHLY SURPLUS</h2>
              <p className="text-2xl font-bold opacity-90 text-center tracking-tighter uppercase">Total Income (225,000) - Expenses (135,000) =</p>
              <div className="text-[140px] font-black my-8 leading-none text-center tracking-tighter transition-colors">90,000 RWF</div>
              <p className="text-xl uppercase tracking-[0.5em] font-black text-emerald-100 text-center">Disposable Prosperity Capital</p>
           </div>
-          <div className="p-8 rounded-xl border-4 border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xl italic text-3xl font-black text-zinc-950 dark:text-white max-w-3xl text-center transition-colors">
-             "All investments are derived strictly from this 90,000 RWF surplus, ensuring zero operational risk."
+          <div className="p-12 rounded-xl border-4 border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xl italic text-3xl font-black text-zinc-950 dark:text-white max-w-3xl text-center transition-colors">
+             "Successful transformation of a -20,000 leakage into a +90,000 wealth creation system."
           </div>
         </div>
       )
     },
     {
       id: 'investments',
-      title: 'Phase 14: Investment Strategy',
+      title: 'Phase 14: Growth Strategy',
       x: 0,
       y: 4500,
       scale: 1,
       component: (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-7xl px-6">
-          <div className="space-y-8">
-            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic leading-none text-center lg:text-left transition-colors">Growth <br /><span className="text-emerald-500">DIVERSIFICATION</span></h2>
-            <div className="space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-7xl px-6 text-center lg:text-left mx-auto">
+          <div className="space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic leading-none text-center lg:text-left">Growth <br /><span className="text-emerald-500">DIVERSIFICATION</span></h2>
+            <div className="space-y-4 w-full max-w-md mx-auto lg:mx-0">
                {[
                  { name: 'RNIT Fund', val: '15,000', rate: '~11.78% ROI', icon: <Globe2 /> },
                  { name: 'Shares (BK Group)', val: '10,000', rate: 'Dividends & Growth', icon: <BarChart3 /> },
@@ -604,9 +613,9 @@ export default function App() {
                  <div key={item.name} className="p-8 rounded-xl bg-white dark:bg-zinc-900 border-4 border-zinc-50 dark:border-zinc-800 flex justify-between items-center shadow-xl group transition-all hover:border-emerald-500">
                     <div className="flex items-center gap-6">
                        <div className="text-emerald-500 group-hover:scale-110 transition-transform">{React.cloneElement(item.icon as React.ReactElement, { size: 32 })}</div>
-                       <div>
-                          <span className="text-xl font-black uppercase text-zinc-950 dark:text-white block">{item.name}</span>
-                          <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">{item.rate}</span>
+                       <div className="text-left">
+                          <span className="text-xl font-black uppercase text-zinc-950 dark:text-white block group-hover:text-emerald-500 transition-colors">{item.name}</span>
+                          <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest text-left">{item.rate}</span>
                        </div>
                     </div>
                     <span className="text-3xl font-black text-zinc-950 dark:text-white">{item.val}</span>
@@ -614,13 +623,13 @@ export default function App() {
                ))}
             </div>
           </div>
-          <div className="space-y-8">
-             <div className="p-10 rounded-xl bg-zinc-950 text-white shadow-3xl border-b-8 border-emerald-500 transition-colors">
+          <div className="space-y-8 w-full">
+             <div className="p-10 rounded-xl bg-zinc-950 text-white shadow-3xl border-b-8 border-emerald-500 transition-colors text-center w-full">
                 <h3 className="text-3xl font-black uppercase italic mb-6">RNIT Asset Audit</h3>
                 <div className="space-y-4 text-zinc-400 font-bold">
                    <p className="flex justify-between"><span>Annual Investment</span> <span className="text-white">180,000 RWF</span></p>
                    <p className="flex justify-between"><span>Target Yield</span> <span className="text-white">~11.78%</span></p>
-                   <p className="flex justify-between"><span>Est. Yearly Profit</span> <span className="text-emerald-400 font-black">+21,000 RWF</span></p>
+                   <p className="flex justify-between font-black text-emerald-400"><span>Est. Yearly Profit</span> <span>+21,000 RWF</span></p>
                 </div>
              </div>
              <div className="p-8 rounded-xl border-4 border-dashed border-zinc-200 dark:border-zinc-800 italic text-xl font-bold text-zinc-400 text-center transition-colors">
@@ -637,10 +646,10 @@ export default function App() {
       y: 4500,
       scale: 1,
       component: (
-        <div className="w-full max-w-5xl space-y-12 px-6">
-          <div className="space-y-4">
-            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center lg:text-left transition-colors">Wealth <span className="text-emerald-500">CORE</span></h2>
-            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center lg:text-left transition-colors">Growth of the committed **40,000 RWF Monthly Fund**.</p>
+        <div className="w-full max-w-5xl space-y-12 px-6 flex flex-col items-center text-center">
+          <div className="space-y-4 text-center">
+            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center transition-colors">Wealth <span className="text-emerald-500">ACCUMULATION</span></h2>
+            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center transition-colors">Projected growth of the committed **40,000 RWF Monthly Fund**.</p>
           </div>
           <Table 
             headers={['Timeline Milestone', 'Committed Fund (RWF)', 'Strategic Status']}
@@ -648,30 +657,30 @@ export default function App() {
               ['3 Months Accumulation', '120,000', 'Target Achieved'],
               ['6 Months Accumulation', '240,000', 'Target Achieved'],
               ['9 Months Accumulation', '360,000', 'Target Achieved'],
-              [<span className="uppercase font-black tracking-widest text-emerald-600 transition-colors">12 Month Goal</span>, <span className="text-4xl font-black text-emerald-600 transition-colors">480,000</span>, <span className="text-emerald-600 font-black transition-colors">STRATEGIC SECURITY</span>]
+              [<span className="uppercase font-black tracking-widest text-emerald-600 transition-colors">12 Month Goal</span>, <span className="text-4xl font-black text-emerald-600 transition-colors">480,000</span>, <span className="text-emerald-600 font-black transition-colors text-center">STRATEGIC SECURITY</span>]
             ]}
             highlightLast
           />
-          <div className="p-6 rounded-xl bg-zinc-50 dark:bg-zinc-900 border-2 border-dashed border-zinc-200 dark:border-zinc-800 text-center transition-colors">
-             <p className="text-zinc-400 font-bold uppercase tracking-widest text-sm">Potential Yearly Accumulation (Total Surplus): **1,500,000 RWF** including additional savings.</p>
+          <div className="p-6 rounded-xl bg-zinc-50 dark:bg-zinc-900 border-2 border-dashed border-zinc-200 dark:border-zinc-800 text-center transition-colors w-full max-w-md">
+             <p className="text-zinc-400 font-bold uppercase tracking-widest text-sm">Potential Yearly Accumulation (Total Surplus): **1.5M RWF**</p>
           </div>
         </div>
       )
     },
     {
       id: 'risk-audit',
-      title: 'Phase 16: Risk Management',
+      title: 'Phase 16: Risk Strategy',
       x: 5000,
       y: 4500,
       scale: 1,
       component: (
-        <div className="max-w-6xl w-full px-6">
+        <div className="max-w-6xl w-full px-6 flex flex-col items-center">
            <div className="space-y-6 mb-12 text-center">
-            <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter leading-none italic uppercase transition-colors">Defense <span className="text-rose-500 italic block transition-colors">STRATEGY</span></h2>
-            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold tracking-tight uppercase max-w-2xl mx-auto transition-colors">Proactive responses to market disruption.</p>
+            <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter leading-none italic uppercase transition-colors text-center">Defense <span className="text-rose-500 italic block transition-colors text-center">STRATEGY</span></h2>
+            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold tracking-tight uppercase max-w-2xl mx-auto transition-colors text-center">Proactive responses to market disruption.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
             {[
               { risk: 'Low demand', icon: <Package />, solution: 'Improve design & RCA marketing pivots.' },
               { risk: 'Tailor delays', icon: <Maximize2 />, solution: 'Maintenance of multiple partner tailors.' },
@@ -682,18 +691,18 @@ export default function App() {
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                className="group p-10 rounded-xl bg-white dark:bg-zinc-900 border-4 border-zinc-100 dark:border-zinc-800 hover:border-zinc-950 dark:hover:border-white transition-all duration-700 shadow-2xl"
+                className="group p-10 rounded-xl bg-white dark:bg-zinc-900 border-4 border-zinc-100 dark:border-zinc-800 hover:border-zinc-950 dark:hover:border-white transition-all duration-700 shadow-2xl text-center"
               >
                 <div className="flex items-start justify-between mb-8">
-                   <div className="w-16 h-16 rounded-2xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 flex items-center justify-center shadow-2xl transition-colors">
+                   <div className="w-16 h-16 rounded-2xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 flex items-center justify-center shadow-2xl transition-colors mx-auto lg:mx-0">
                       {React.cloneElement(item.icon as React.ReactElement, { size: 32 })}
                    </div>
                    <div className="px-3 py-1 bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 font-black uppercase text-[10px] tracking-widest rounded-full border border-rose-100 dark:border-rose-900 transition-colors">
                       Audit Clear
                    </div>
                 </div>
-                <h3 className="text-4xl font-black text-zinc-950 dark:text-white tracking-tighter mb-4 uppercase transition-colors">{item.risk}</h3>
-                <p className="text-zinc-500 dark:text-zinc-400 text-xl font-bold leading-tight transition-colors">{item.solution}</p>
+                <h3 className="text-4xl font-black text-zinc-950 dark:text-white tracking-tighter mb-4 uppercase transition-colors text-center lg:text-left">{item.risk}</h3>
+                <p className="text-zinc-500 dark:text-zinc-400 text-xl font-bold leading-tight transition-colors text-center lg:text-left">{item.solution}</p>
               </motion.div>
             ))}
           </div>
@@ -713,7 +722,7 @@ export default function App() {
           </motion.div>
           <h2 className="text-9xl font-black text-zinc-950 dark:text-white tracking-[-0.06em] uppercase italic leading-none text-center transition-colors">GOAL <br /><span className="text-emerald-500">ACQUIRED</span></h2>
           <p className="text-4xl font-black tracking-tight leading-tight max-w-3xl mx-auto italic text-zinc-900 dark:text-white text-center transition-colors">
-            "This plan transforms financial instability into a <span className="text-emerald-500 underline decoration-emerald-100 dark:decoration-emerald-950/30 decoration-8 underline-offset-8">SUSTAINABLE SYSTEM</span> within 12 months."
+            "This plan transforms financial instability into a <span className="text-emerald-500 underline decoration-emerald-100 dark:decoration-emerald-950/30 decoration-8 underline-offset-8 transition-colors">SUSTAINABLE SYSTEM</span> within 12 months."
           </p>
           <div className="pt-12 border-t-8 border-zinc-950 dark:border-white max-w-md mx-auto text-center transition-colors">
              <p className="text-zinc-500 dark:text-zinc-400 font-black tracking-[0.4em] text-sm uppercase transition-colors">RWANDA CODING ACADEMY // FY26</p>
@@ -777,8 +786,8 @@ export default function App() {
       </nav>
 
       {/* Header UI */}
-      <div className="fixed top-8 md:top-12 left-8 md:left-12 z-50 flex flex-col gap-1 md:gap-2 items-start pointer-events-none">
-        <div className="flex items-center gap-3 md:gap-4 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 dark:border-zinc-800 shadow-sm transition-colors">
+      <div className="fixed top-6 md:top-12 left-6 md:left-12 z-50 flex flex-col gap-1 md:gap-2 items-start pointer-events-none max-w-[60vw]">
+        <div className="flex items-center gap-3 md:gap-4 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 dark:border-zinc-800 shadow-sm transition-colors shrink-0">
            <span className="text-[10px] md:text-[12px] text-zinc-500 dark:text-zinc-400 font-black uppercase tracking-[0.3em] md:tracking-[0.5em] transition-colors">PHASE {activeSection + 1 < 10 ? `0${activeSection + 1}` : activeSection + 1}</span>
            <div className="h-[2px] md:h-[3px] w-12 md:w-16 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden transition-colors">
               <motion.div 
@@ -796,7 +805,7 @@ export default function App() {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             exit={{ opacity: 0, y: -10, filter: 'blur(10px)' }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="text-2xl md:text-4xl lg:text-5xl font-black text-zinc-950 dark:text-white tracking-tighter leading-none mt-1 md:mt-2 uppercase italic drop-shadow-sm bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 dark:border-zinc-800 transition-colors"
+            className="text-base md:text-xl lg:text-2xl font-black text-zinc-950 dark:text-white tracking-tighter leading-tight mt-1 md:mt-2 uppercase italic drop-shadow-sm bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 dark:border-zinc-800 transition-colors max-w-full break-words"
           >
             {currentSection.title}
           </motion.h1>
@@ -804,7 +813,7 @@ export default function App() {
       </div>
 
       {/* Theme Toggle & Side Info */}
-      <div className="fixed top-8 md:top-12 right-8 md:right-12 z-50 flex flex-col items-end gap-4 pointer-events-none">
+      <div className="fixed top-6 md:top-12 right-6 md:right-12 z-50 flex flex-col items-end gap-4 pointer-events-none max-w-[30vw]">
          <button 
            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
            className="p-4 rounded-2xl bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md border border-white/20 dark:border-zinc-800 shadow-xl pointer-events-auto hover:scale-110 active:scale-95 transition-all text-zinc-950 dark:text-white"
@@ -812,9 +821,9 @@ export default function App() {
            {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
          </button>
          
-         <div className="bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/20 dark:border-zinc-800 shadow-sm text-right transition-colors">
+         <div className="bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/20 dark:border-zinc-800 shadow-sm text-right transition-colors overflow-hidden">
            <span className="block text-[10px] md:text-[12px] text-zinc-500 dark:text-zinc-400 font-black tracking-[0.3em] md:tracking-[0.5em] uppercase transition-colors">CONFIDENTIAL</span>
-           <span className="block text-sm md:text-xl font-black text-zinc-950 dark:text-white uppercase tracking-tighter leading-none italic transition-colors">INVESTOR // RCA 26</span>
+           <span className="block text-xs md:text-lg font-black text-zinc-950 dark:text-white uppercase tracking-tighter leading-none italic transition-colors truncate">INVESTOR // RCA 26</span>
          </div>
       </div>
 
