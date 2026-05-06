@@ -19,7 +19,9 @@ import {
   ShieldCheck,
   Maximize2,
   Sun,
-  Moon
+  Moon,
+  BarChart3,
+  Globe2
 } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
@@ -93,7 +95,7 @@ export default function App() {
 
   const INCOME_GROWTH_DATA = [
     { name: 'Before Plan', income: 60000 },
-    { name: 'After Plan', income: 260000 },
+    { name: 'After Plan', income: 225000 },
   ];
 
   const SAVINGS_TIMELINE = [
@@ -154,7 +156,7 @@ export default function App() {
               <span className="text-zinc-200 dark:text-zinc-800">& Enterprise</span>
             </h1>
             <p className="text-zinc-500 dark:text-zinc-400 text-xl md:text-2xl mb-24 max-w-4xl mx-auto font-medium leading-relaxed uppercase tracking-tighter transition-colors">
-              A 16-Phase exhaustive framework to secure long-term capital <br /> stability through strategic production and debt liquidation.
+              A 17-Phase exhaustive framework to secure long-term capital <br /> stability through strategic production and debt liquidation.
             </p>
           </motion.div>
         </div>
@@ -300,36 +302,37 @@ export default function App() {
       y: 2000,
       scale: 1,
       component: (
-        <div className="relative w-full max-w-7xl px-6 flex items-center justify-center min-h-[60vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start w-full max-w-7xl px-6">
           {/* Background Parallax Raw Material */}
           <div className="absolute inset-0 pointer-events-none perspective-[1500px] -z-10">
              <motion.div 
                initial={{ opacity: 0, x: -100, rotateY: 30, scale: 0.8 }}
-               whileInView={{ opacity: 0.4, x: -500, rotateY: 20, scale: 1.1 }}
+               whileInView={{ opacity: 0.5, x: -380, rotateY: 15, scale: 1.15 }}
                transition={{ duration: 3, ease: "easeOut" }}
                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen max-w-4xl aspect-video hidden lg:block"
              >
-                <img src="/images/collected-jeans-pile.png" alt="" className="w-full h-full object-contain filter drop-shadow-[0_40px_80px_rgba(0,0,0,0.1)]" />
+                <img src="/images/collected-jeans-pile.png" alt="" className="w-full h-full object-contain filter drop-shadow-[0_40px_80px_rgba(0,0,0,0.15)]" />
              </motion.div>
           </div>
 
-          <div className="w-full max-w-4xl space-y-12 relative z-10">
+          <div className="lg:col-span-12 space-y-12 relative z-10 flex flex-col items-center">
             <div className="space-y-4 text-center">
-              <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic leading-none">Material <span className="text-indigo-600 underline decoration-zinc-100 dark:decoration-zinc-800 decoration-8 underline-offset-8">AUDIT</span></h2>
-              <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold max-w-2xl mx-auto">Granular production cost breakdown for Portfolio 01.</p>
+              <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic leading-none">Jeans Bags <span className="text-indigo-600 underline decoration-zinc-100 dark:decoration-zinc-800 decoration-8 underline-offset-8">& Apparel</span></h2>
+              <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold max-w-2xl mx-auto">Granular material cost justification for Portfolio 01.</p>
             </div>
             <Table 
-              headers={['Required Material', 'Budget (RWF)', 'Purpose']}
+              headers={['Required Material', 'Budget (RWF)', 'Audit Purpose']}
               rows={[
-                ['Second-hand Jeans', '50,000', 'Core Fabric'],
-                ['Zippers & Thread', '20,000', 'Fasteners'],
-                ['Inner Lining Fabric', '15,000', 'Finishing'],
+                ['Second-hand Jeans', '50,000', 'Core Fabric Sourcing'],
+                ['Zippers', '15,000', 'Structural Fasteners'],
+                ['Thread', '5,000', 'Manufacturing Essential'],
+                ['Inner Lining Fabric', '15,000', 'Internal Finishing'],
                 ['Handles & Straps', '10,000', 'Hardware'],
-                ['Labels & Decorations', '10,000', 'Branding'],
-                ['Packaging & Extras', '20,000', 'Presentation'],
-                ['Marketing & Transport', '40,000', 'Logistics'],
-                ['Material Reserve', '40,000', 'Buffer'],
-                [<span className="text-indigo-600 font-black uppercase tracking-widest text-[10px]">Total Materials</span>, '', <span className="text-indigo-600 font-black text-2xl">205,000</span>]
+                ['Labels & Decorations', '10,000', 'Branding Basis'],
+                ['Packaging', '20,000', 'Market Presentation'],
+                ['Marketing & Transport', '40,000', 'Outreach & Logistics'],
+                ['Extra Material Reserve', '50,000', 'Production Buffer'],
+                [<span className="text-indigo-600 font-black uppercase tracking-widest text-[10px]">Total Material Capex</span>, '', <span className="text-indigo-600 font-black text-2xl">205,000</span>]
               ]}
               highlightLast
             />
@@ -361,8 +364,8 @@ export default function App() {
             <Table 
               headers={['Production Component', 'Quantity / Rate', 'Subtotal']}
               rows={[
-                ['Production Target', '40 Bags', 'Per Month'],
-                ['Labour Rate', '3,500 RWF', 'Per Unit'],
+                ['Target Production Batch', '40 Units', 'Monthly Cycle'],
+                ['Labour Rate per Unit', '3,500 RWF', 'Fixed Contract'],
                 [<span className="text-indigo-600 font-black uppercase text-[10px]">Total Labour Basis</span>, '', <span className="font-black text-3xl">140,000 RWF</span>]
               ]}
               highlightLast
@@ -389,7 +392,7 @@ export default function App() {
                   Portfolio 02 Introduction
                </motion.div>
                <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase leading-[0.8] italic">BSF <br /><span className="text-emerald-500">STARTUP</span></h2>
-               <p className="text-3xl font-bold text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto lg:mx-0">Industrial protein conversion using Black Soldier Fly larvae (BSFL).</p>
+               <p className="text-3xl font-bold text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">Industrial protein conversion using Black Soldier Fly larvae (BSFL).</p>
             </div>
             <div className="space-y-4">
                {["Utilizes 100% Organic Waste", "High-Demand Agricultural Feed", "Zero-Cost Substrate Sourcing"].map((feat) => (
@@ -422,7 +425,7 @@ export default function App() {
     },
     {
       id: 'bsf-setup',
-      title: 'Phase 09: Startup CAPEX',
+      title: 'Phase 09: Startup COSTS',
       x: -5000,
       y: 2000,
       scale: 1,
@@ -433,14 +436,14 @@ export default function App() {
             <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center lg:text-left text-shadow-sm">Detailed audit of the 650,000 RWF infrastructure setup cost.</p>
           </div>
           <Table 
-            headers={['Infrastructure Asset', 'Quantity / Detail', 'Cost (RWF)']}
+            headers={['Infrastructure Asset', 'Technical Detail / Spec', 'Cost (RWF)']}
             rows={[
               ['Farm Shed Construction', 'Core Enclosure & Shelter', '275,000'],
               ['Starter Larvae Colony', 'Biological Startup Seed', '8,000'],
-              ['Rearing Trays (15)', 'High-Density Units', '120,000'],
+              ['Rearing Trays (15)', 'High-Density Production Units', '120,000'],
               ['Buckets & Containers', 'Waste Management Units', '30,000'],
               ['Breeding Cage Structure', 'Metallic Biological Frame', '80,000'],
-              ['Waste Logistics', 'Collection & Transport', '72,000'],
+              ['Waste Logistics Setup', 'Collection & Transport', '72,000'],
               ['Drying Racks', 'Processing Base', '50,000'],
               ['Protective Netting', 'Setup Protection', '15,000'],
               [<span className="text-emerald-600 font-black uppercase text-[10px]">Total Setup CAPEX</span>, '', <span className="text-emerald-600 font-black text-2xl">650,000</span>]
@@ -473,8 +476,8 @@ export default function App() {
                   </div>
                   <div className="flex-1 p-10 rounded-xl bg-emerald-500 text-white shadow-2xl transition-colors">
                      <p className="text-[10px] font-black uppercase tracking-[0.4em] opacity-60 mb-4 text-center">Gross Revenue</p>
-                     <p className="text-5xl font-black text-center tracking-tighter">175,000</p>
-                     <p className="text-sm font-bold uppercase tracking-widest mt-2 text-center text-emerald-100">70KG @ 2,500 RWF</p>
+                     <p className="text-5xl font-black text-center tracking-tighter">140,000</p>
+                     <p className="text-sm font-bold uppercase tracking-widest mt-2 text-center text-emerald-100">70KG @ 2,000 RWF</p>
                   </div>
                </div>
             </div>
@@ -488,9 +491,9 @@ export default function App() {
                  headers={['Parameter', 'Calculation Basis', 'Value']}
                  rows={[
                    ['Target Production', 'High-Protein Output', '70 KG'],
-                   ['Gross Revenue', '70 KG * 2,500 RWF', '175,000'],
+                   ['Gross Revenue', '70 KG * 2,000 RWF', '140,000'],
                    ['Operating Costs', 'Logistics & Collection', '30,000'],
-                   [<span className="text-emerald-600 font-black uppercase text-[10px]">Net Bio-Profit</span>, 'Revenue - Costs', <span className="text-emerald-600 font-black text-3xl transition-colors">145,000</span>]
+                   [<span className="text-emerald-600 font-black uppercase text-[10px]">Net Monthly Profit</span>, 'Revenue - Costs', <span className="text-emerald-600 font-black text-3xl transition-colors">110,000</span>]
                  ]}
                  highlightLast
                />
@@ -501,7 +504,7 @@ export default function App() {
     },
     {
       id: 'revenue-shift',
-      title: 'Phase 11: Revenue Expansion',
+      title: 'Phase 11: Target Revenue',
       x: -7500,
       y: 4500,
       scale: 1,
@@ -515,7 +518,7 @@ export default function App() {
                </div>
                <div>
                   <p className="text-xs font-black uppercase tracking-widest opacity-60">Strategic Growth</p>
-                  <p className="text-5xl font-black tracking-tighter">+333% Expansion</p>
+                  <p className="text-5xl font-black tracking-tighter">+275% Expansion</p>
                </div>
             </div>
           </div>
@@ -524,8 +527,8 @@ export default function App() {
             rows={[
               ['Original Static Income', '60,000'],
               ['Jeans Bag Business (Portfolio 01)', '55,000'],
-              ['BSF Farming Business (Portfolio 02)', '145,000'],
-              [<span className="text-emerald-600 font-black uppercase text-[10px]">New Monthly Total</span>, <span className="text-emerald-600 font-black text-3xl">260,000</span>]
+              ['BSF Farming Business (Portfolio 02)', '110,000'],
+              [<span className="text-emerald-600 font-black uppercase text-[10px]">New Monthly Total</span>, <span className="text-emerald-600 font-black text-3xl">225,000</span>]
             ]}
             highlightLast
           />
@@ -542,17 +545,17 @@ export default function App() {
         <div className="w-full max-w-5xl space-y-12 px-6">
           <div className="space-y-4">
             <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center lg:text-left transition-colors">Expense <span className="text-emerald-500">HYGIENE</span></h2>
-            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center lg:text-left transition-colors">Optimized expenditure to ensure maximum surplus compounding.</p>
+            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center lg:text-left transition-colors text-shadow-sm">Optimized expenditure to ensure maximum surplus compounding.</p>
           </div>
           <Table 
             headers={['Budget Category', 'Strategic Justification', 'Amount (RWF)']}
             rows={[
               ['Transport', 'Commute Requirements', '18,000'],
-              ['Lunch & Snacks', 'Nutritional Standard', '25,000'],
-              ['Entertainment & Data', 'Connectivity Threshold', '10,000'],
+              ['Food / Sustenance', 'Nutritional Standard', '25,000'],
+              ['Entertainment', 'Connectivity Threshold', '10,000'],
               ['Business Reinvestment', 'R&D Growth Allocation', '35,000'],
               ['Emergency Savings', 'Commitment Basis', '10,000'],
-              ['Stability Fund', 'Wealth Building Basis', '30,000'],
+              ['Future Stability Fund', 'Wealth Building Basis', '30,000'],
               ['Personal Buffer', 'Incidentals Reserve', '7,000'],
               [<span className="text-emerald-600 font-black uppercase text-[10px]">Total New Expenses</span>, '', <span className="text-emerald-600 font-black text-2xl">135,000</span>]
             ]}
@@ -569,33 +572,78 @@ export default function App() {
       scale: 1,
       component: (
         <div className="flex flex-col items-center gap-12 text-center px-6">
-          <div className="p-16 rounded-xl bg-emerald-500 text-white shadow-3xl max-w-4xl relative overflow-hidden group">
+          <div className="p-16 rounded-xl bg-emerald-500 text-white shadow-3xl max-w-4xl relative overflow-hidden group transition-colors">
              <Coins size={120} className="absolute -top-10 -right-10 opacity-20 group-hover:scale-110 transition-transform" />
              <h2 className="text-5xl font-black mb-4 uppercase italic text-center text-shadow-lg">NET MONTHLY SURPLUS</h2>
-             <p className="text-2xl font-bold opacity-90 text-center tracking-tighter">260,000 (Income) - 135,000 (Expenses) =</p>
-             <div className="text-[140px] font-black my-8 leading-none text-center tracking-tighter transition-colors">125,000 RWF</div>
-             <p className="text-xl uppercase tracking-[0.5em] font-black text-emerald-100 text-center">Monthly Wealth Potential</p>
+             <p className="text-2xl font-bold opacity-90 text-center tracking-tighter uppercase">Total Income (225,000) - Expenses (135,000) =</p>
+             <div className="text-[140px] font-black my-8 leading-none text-center tracking-tighter transition-colors">90,000 RWF</div>
+             <p className="text-xl uppercase tracking-[0.5em] font-black text-emerald-100 text-center">Disposable Prosperity Capital</p>
           </div>
           <div className="p-8 rounded-xl border-4 border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xl italic text-3xl font-black text-zinc-950 dark:text-white max-w-3xl text-center transition-colors">
-             "Successful transformation of a -20,000 leakage into a +125,000 wealth creation system."
+             "All investments are derived strictly from this 90,000 RWF surplus, ensuring zero operational risk."
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'investments',
+      title: 'Phase 14: Investment Strategy',
+      x: 0,
+      y: 4500,
+      scale: 1,
+      component: (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-7xl px-6">
+          <div className="space-y-8">
+            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic leading-none text-center lg:text-left transition-colors">Growth <br /><span className="text-emerald-500">DIVERSIFICATION</span></h2>
+            <div className="space-y-4">
+               {[
+                 { name: 'RNIT Fund', val: '15,000', rate: '~11.78% ROI', icon: <Globe2 /> },
+                 { name: 'Shares (BK Group)', val: '10,000', rate: 'Dividends & Growth', icon: <BarChart3 /> },
+                 { name: 'Additional Savings', val: '65,000', rate: 'High Liquidity', icon: <ShieldCheck /> }
+               ].map(item => (
+                 <div key={item.name} className="p-8 rounded-xl bg-white dark:bg-zinc-900 border-4 border-zinc-50 dark:border-zinc-800 flex justify-between items-center shadow-xl group transition-all hover:border-emerald-500">
+                    <div className="flex items-center gap-6">
+                       <div className="text-emerald-500 group-hover:scale-110 transition-transform">{React.cloneElement(item.icon as React.ReactElement, { size: 32 })}</div>
+                       <div>
+                          <span className="text-xl font-black uppercase text-zinc-950 dark:text-white block">{item.name}</span>
+                          <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">{item.rate}</span>
+                       </div>
+                    </div>
+                    <span className="text-3xl font-black text-zinc-950 dark:text-white">{item.val}</span>
+                 </div>
+               ))}
+            </div>
+          </div>
+          <div className="space-y-8">
+             <div className="p-10 rounded-xl bg-zinc-950 text-white shadow-3xl border-b-8 border-emerald-500 transition-colors">
+                <h3 className="text-3xl font-black uppercase italic mb-6">RNIT Asset Audit</h3>
+                <div className="space-y-4 text-zinc-400 font-bold">
+                   <p className="flex justify-between"><span>Annual Investment</span> <span className="text-white">180,000 RWF</span></p>
+                   <p className="flex justify-between"><span>Target Yield</span> <span className="text-white">~11.78%</span></p>
+                   <p className="flex justify-between"><span>Est. Yearly Profit</span> <span className="text-emerald-400 font-black">+21,000 RWF</span></p>
+                </div>
+             </div>
+             <div className="p-8 rounded-xl border-4 border-dashed border-zinc-200 dark:border-zinc-800 italic text-xl font-bold text-zinc-400 text-center transition-colors">
+                "Sustainable investing based strictly on real profits ensures long-term wealth without artificial creation."
+             </div>
           </div>
         </div>
       )
     },
     {
       id: 'savings-path',
-      title: 'Phase 14: Accumulation Path',
-      x: 0,
+      title: 'Phase 15: Accumulation Path',
+      x: 2500,
       y: 4500,
       scale: 1,
       component: (
         <div className="w-full max-w-5xl space-y-12 px-6">
           <div className="space-y-4">
-            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center lg:text-left transition-colors">Wealth <span className="text-emerald-500">ACCUMULATION</span></h2>
+            <h2 className="text-7xl font-black text-zinc-950 dark:text-white tracking-tighter uppercase italic text-center lg:text-left transition-colors">Wealth <span className="text-emerald-500">CORE</span></h2>
             <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold text-center lg:text-left transition-colors">Growth of the committed **40,000 RWF Monthly Fund**.</p>
           </div>
           <Table 
-            headers={['Timeline Milestone', 'Committed Fund (RWF)', 'Audit Status']}
+            headers={['Timeline Milestone', 'Committed Fund (RWF)', 'Strategic Status']}
             rows={[
               ['3 Months Accumulation', '120,000', 'Target Achieved'],
               ['6 Months Accumulation', '240,000', 'Target Achieved'],
@@ -605,15 +653,57 @@ export default function App() {
             highlightLast
           />
           <div className="p-6 rounded-xl bg-zinc-50 dark:bg-zinc-900 border-2 border-dashed border-zinc-200 dark:border-zinc-800 text-center transition-colors">
-             <p className="text-zinc-400 font-bold uppercase tracking-widest text-sm">Potential Yearly Accumulation (Total Surplus): **1.5M RWF**</p>
+             <p className="text-zinc-400 font-bold uppercase tracking-widest text-sm">Potential Yearly Accumulation (Total Surplus): **1,500,000 RWF** including additional savings.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'risk-audit',
+      title: 'Phase 16: Risk Management',
+      x: 5000,
+      y: 4500,
+      scale: 1,
+      component: (
+        <div className="max-w-6xl w-full px-6">
+           <div className="space-y-6 mb-12 text-center">
+            <h2 className="text-8xl font-black text-zinc-950 dark:text-white tracking-tighter leading-none italic uppercase transition-colors">Defense <span className="text-rose-500 italic block transition-colors">STRATEGY</span></h2>
+            <p className="text-zinc-500 dark:text-zinc-400 text-2xl font-bold tracking-tight uppercase max-w-2xl mx-auto transition-colors">Proactive responses to market disruption.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { risk: 'Low demand', icon: <Package />, solution: 'Improve design & RCA marketing pivots.' },
+              { risk: 'Tailor delays', icon: <Maximize2 />, solution: 'Maintenance of multiple partner tailors.' },
+              { risk: 'Waste shortage', icon: <Bug />, solution: 'Partner with schools and restaurants.' },
+              { risk: 'Competition', icon: <Layers />, solution: 'Superior quality & competitive pricing.' },
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                className="group p-10 rounded-xl bg-white dark:bg-zinc-900 border-4 border-zinc-100 dark:border-zinc-800 hover:border-zinc-950 dark:hover:border-white transition-all duration-700 shadow-2xl"
+              >
+                <div className="flex items-start justify-between mb-8">
+                   <div className="w-16 h-16 rounded-2xl bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 flex items-center justify-center shadow-2xl transition-colors">
+                      {React.cloneElement(item.icon as React.ReactElement, { size: 32 })}
+                   </div>
+                   <div className="px-3 py-1 bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 font-black uppercase text-[10px] tracking-widest rounded-full border border-rose-100 dark:border-rose-900 transition-colors">
+                      Audit Clear
+                   </div>
+                </div>
+                <h3 className="text-4xl font-black text-zinc-950 dark:text-white tracking-tighter mb-4 uppercase transition-colors">{item.risk}</h3>
+                <p className="text-zinc-500 dark:text-zinc-400 text-xl font-bold leading-tight transition-colors">{item.solution}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       )
     },
     {
       id: 'conclusion',
-      title: 'Phase 15: Strategic Resolution',
-      x: 2500,
+      title: 'Phase 17: Strategic Resolution',
+      x: 7500,
       y: 4500,
       scale: 1,
       component: (
