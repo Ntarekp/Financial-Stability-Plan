@@ -57,13 +57,13 @@ const Table = ({
 }) => (
   <div className="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-md transition-colors w-full">
     <table className="w-full text-left text-[clamp(0.8rem,1.2vw,1rem)] border-collapse">
-      <thead className="bg-zinc-50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400 uppercase text-[10px] tracking-[0.2em]">
+      <thead className="bg-zinc-100 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 uppercase text-[10px] tracking-[0.2em]">
         <tr>
           {headers.map((h, i) => (
             <th
               key={i}
               className={cn(
-                "px-4 py-3 font-bold border-r border-zinc-200/50 dark:border-zinc-700/50 last:border-r-0",
+                "px-4 py-3 font-bold border-r border-zinc-200 dark:border-zinc-700 last:border-r-0",
                 i === 0 ? "text-left" : "text-right",
               )}
             >
@@ -102,7 +102,13 @@ const Table = ({
 );
 
 const PhaseLabel = ({ num }: { num: string }) => (
-  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600 mb-2 block">Phase {num}</span>
+  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400 mb-2 block transition-colors">Phase {num}</span>
+);
+
+const SupportingText = ({ text }: { text: string }) => (
+  <p className="mt-4 text-zinc-500 dark:text-zinc-400 text-sm font-medium leading-relaxed max-w-lg mx-auto italic">
+    {text}
+  </p>
 );
 
 export default function App() {
@@ -143,10 +149,10 @@ export default function App() {
       component: (
         <div className="relative flex flex-col items-center justify-center text-center w-full max-w-5xl mx-auto px-6">
           <div className="absolute inset-0 pointer-events-none -z-10">
-            <div className="absolute left-[-5%] top-1/2 -translate-y-1/2 w-48 aspect-square opacity-20">
+            <div className="absolute left-[-5%] top-1/2 -translate-y-1/2 w-48 aspect-square opacity-80">
               <img src="/images/bag2.png" alt="" className="w-full h-full object-contain" />
             </div>
-            <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-48 aspect-square opacity-20">
+            <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-48 aspect-square opacity-80">
               <img src="/images/bag3.png" alt="" className="w-full h-full object-contain" />
             </div>
           </div>
@@ -157,12 +163,13 @@ export default function App() {
               <span className="text-emerald-500 italic">Sustainability</span> <br />
               <span className="text-zinc-600 dark:text-zinc-400">Strategy</span>
             </h1>
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm max-w-sm mx-auto font-bold uppercase tracking-widest transition-colors">
-              A 20-Phase framework for capital stability.
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm max-w-sm mx-auto font-bold uppercase tracking-widest transition-colors">
+              A 19-Phase framework for capital stability.
             </p>
-            <div className="flex flex-wrap justify-center gap-8 mt-10 opacity-50">
+            <SupportingText text="This plan outlines a transition from financial dependency to a self-sustaining ecosystem through strategic investment and operational efficiency." />
+            <div className="flex flex-wrap justify-center gap-8 mt-10 opacity-70">
               {["Prince Ntare", "Cynthia Marie", "Gurnaud Ishema"].map((name) => (
-                <span key={name} className="text-[11px] font-black uppercase tracking-widest border-t-2 border-zinc-200 dark:border-zinc-800 pt-3">
+                <span key={name} className="text-[11px] font-black uppercase tracking-widest border-t-2 border-zinc-300 dark:border-zinc-800 pt-3 text-zinc-600 dark:text-zinc-400">
                   {name}
                 </span>
               ))}
@@ -178,8 +185,8 @@ export default function App() {
       y: 0,
       scale: 1,
       component: (
-        <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto">
-          <div className="text-center"><PhaseLabel num="02" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase italic leading-none">Current <span className="text-emerald-500">INCOME</span></h2></div>
+        <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto text-center">
+          <div><PhaseLabel num="02" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase italic leading-none">Current <span className="text-emerald-500">INCOME</span></h2></div>
           <Table
             headers={["Source", "Context", "Amount"]}
             rows={[
@@ -190,6 +197,7 @@ export default function App() {
             ]}
             highlightLast
           />
+          <SupportingText text="An analysis of existing cash inflows shows a baseline of 60,000 RWF per month from multiple sources." />
         </div>
       ),
     },
@@ -200,8 +208,8 @@ export default function App() {
       y: 0,
       scale: 1,
       component: (
-        <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto">
-          <div className="text-center"><PhaseLabel num="03" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase italic leading-none">Current <span className="text-rose-500">SPEND</span></h2></div>
+        <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto text-center">
+          <div><PhaseLabel num="03" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase italic leading-none">Current <span className="text-rose-500">SPEND</span></h2></div>
           <Table
             headers={["Category", "Usage", "Amount"]}
             rows={[
@@ -213,6 +221,7 @@ export default function App() {
             ]}
             highlightLast
           />
+          <SupportingText text="Current monthly expenditures total 80,000 RWF, revealing a significant gap between earning and spending." />
         </div>
       ),
     },
@@ -230,7 +239,7 @@ export default function App() {
             <h2 className="text-2xl font-black mb-1 uppercase tracking-tighter">CRITICAL DEFICIT</h2>
             <div className="text-6xl font-black my-2 tracking-tighter">-20,000 RWF</div>
           </div>
-          <p className="text-zinc-500 dark:text-zinc-400 text-sm font-bold italic">Status quo is unsustainable.</p>
+          <SupportingText text="The 20,000 RWF monthly deficit is the core problem. Without intervention, this leads to increasing debt and financial instability." />
         </div>
       ),
     },
@@ -241,8 +250,8 @@ export default function App() {
       y: 3000,
       scale: 1,
       component: (
-        <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto">
-          <div className="text-center"><PhaseLabel num="05" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase italic leading-none">Debt <span className="text-rose-500">SITUATION</span></h2></div>
+        <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto text-center">
+          <div><PhaseLabel num="05" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase italic leading-none">Debt <span className="text-rose-500">SITUATION</span></h2></div>
           <Table
             headers={["Creditor", "Context", "Debt"]}
             rows={[
@@ -253,6 +262,7 @@ export default function App() {
             ]}
             highlightLast
           />
+          <SupportingText text="Total liabilities of 150,000 RWF must be cleared to reach a neutral financial state before growth can begin." />
         </div>
       ),
     },
@@ -275,6 +285,7 @@ export default function App() {
                 </div>
               ))}
             </div>
+            <SupportingText text="A 1.5M RWF seed fund is allocated to clear debt, create a buffer, and fuel the main investment engines." />
           </div>
           <div className="w-64 aspect-square bg-emerald-500 text-white rounded-3xl flex flex-col items-center justify-center shadow-2xl border-4 border-emerald-400 shrink-0">
               <p className="text-[10px] font-black uppercase opacity-60">Total Seed</p>
@@ -290,22 +301,25 @@ export default function App() {
       y: 3000,
       scale: 1,
       component: (
-        <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto">
-          <div className="text-center"><PhaseLabel num="07" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase leading-none">Material <span className="text-indigo-600">INPUTS</span></h2></div>
-          <Table
-            headers={["Material", "Budget (RWF)"]}
-            rows={[
-              ["Jeans", "50,000"],
-              ["Thread/Zips", "20,000"],
-              ["Inner Lining", "15,000"],
-              ["Hardware", "10,000"],
-              ["Packaging", "30,000"],
-              ["Marketing", "40,000"],
-              ["Buffer", "40,000"],
-              [<span className="text-indigo-600 uppercase text-[10px]">Total</span>, <span className="text-indigo-600 font-black">205,000</span>],
-            ]}
-            highlightLast
-          />
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto text-center relative z-10">
+            <div><PhaseLabel num="07" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase leading-none">Material <span className="text-indigo-600">INPUTS</span></h2></div>
+            <Table
+              headers={["Material", "Budget (RWF)"]}
+              rows={[
+                ["Jeans", "50,000"],
+                ["Thread/Zips", "20,000"],
+                ["Inner Lining", "15,000"],
+                ["Hardware", "10,000"],
+                ["Packaging", "30,000"],
+                ["Marketing", "40,000"],
+                ["Buffer", "40,000"],
+                [<span className="text-indigo-600 uppercase text-[10px]">Total</span>, <span className="text-indigo-600 font-black">205,000</span>],
+              ]}
+              highlightLast
+            />
+            <SupportingText text="The Denim Bags project begins with a 205,000 RWF investment in raw materials and market entry." />
+          </div>
         </div>
       ),
     },
@@ -316,61 +330,88 @@ export default function App() {
       y: 3000,
       scale: 1,
       component: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full max-w-4xl px-6 mx-auto">
-          <div className="space-y-6 text-center md:text-left">
-            <PhaseLabel num="08" />
-            <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">Tailor <br /><span className="text-indigo-600">LOGIC</span></h2>
-            <div className="p-6 rounded-2xl bg-indigo-600 text-white shadow-xl inline-block">
-              <span className="text-[10px] font-black uppercase opacity-60">Unit Rate</span>
-              <p className="text-4xl font-black tracking-tighter mt-1">3,500 <span className="text-sm font-normal opacity-50">RWF</span></p>
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full max-w-4xl px-6 mx-auto relative z-10">
+            <div className="space-y-6 text-center md:text-left">
+              <PhaseLabel num="08" />
+              <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">Tailor <br /><span className="text-indigo-600">LOGIC</span></h2>
+              <div className="p-6 rounded-2xl bg-indigo-600 text-white shadow-xl inline-block">
+                <span className="text-[10px] font-black uppercase opacity-60">Unit Rate</span>
+                <p className="text-4xl font-black tracking-tighter mt-1">3,500 <span className="text-sm font-normal opacity-50">RWF</span></p>
+              </div>
+              <SupportingText text="A fixed production cost of 3,500 RWF per unit ensures predictable margins as we scale to 40 bags per month." />
             </div>
+            <Table
+              headers={["Production", "Rate", "Subtotal"]}
+              rows={[
+                ["Target", "40 Bags", "Fixed"],
+                ["Labour", "3,500", "Unit"],
+                [<span className="text-indigo-600 uppercase text-[10px]">Basis</span>, "", <span className="font-black text-2xl">140,000</span>],
+              ]}
+              highlightLast
+            />
           </div>
-          <Table
-            headers={["Production", "Rate", "Subtotal"]}
-            rows={[
-              ["Target", "40 Bags", "Fixed"],
-              ["Labour", "3,500", "Unit"],
-              [<span className="text-indigo-600 uppercase text-[10px]">Basis</span>, "", <span className="font-black text-2xl">140,000</span>],
-            ]}
-            highlightLast
-          />
         </div>
       ),
     },
     {
-      id: "bsf-video",
-      title: "Phase 09: BSF Process",
+      id: "bsf-project-start",
+      title: "Phase 09: BSF Startup & Costs",
       x: -3000,
       y: 3000,
       scale: 1,
       component: (
-        <div className="flex flex-col items-center justify-center w-full max-w-5xl px-6 mx-auto space-y-8">
-          <PhaseLabel num="09" />
-          <div className="w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-emerald-500/20 bg-black">
-            <video
-              src="/images/bsfl-farming.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
+        <div className="flex flex-col items-center justify-center w-full max-w-6xl px-6 mx-auto space-y-10">
+          <div className="text-center w-full">
+            <PhaseLabel num="09" />
+            <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">BSF <span className="text-emerald-500">STARTUP ENGINE</span></h2>
+            <SupportingText text="The second project: Black Soldier Fly (BSF) farming. This biotech engine converts organic waste into high-value protein and fertilizer." />
           </div>
-          <p className="text-xl font-black text-emerald-500 uppercase tracking-widest italic">Black Soldier Fly Farming Lifecycle</p>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full">
+            <div className="w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-emerald-500/20 bg-black group relative">
+              <video
+                src="/images/bsfl-farming.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 bg-emerald-500 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-lg">High Res Process</div>
+            </div>
+            
+            <div className="space-y-4">
+              <Table
+                headers={["Asset", "Spec", "Cost"]}
+                rows={[
+                  ["Farm Shed", "Enclosure", "275k"],
+                  ["Larvae", "Seed", "8k"],
+                  ["Trays", "15 Units", "120k"],
+                  ["Cage", "Metallic", "80k"],
+                  ["Logistics", "Transport", "72k"],
+                  ["Drying", "Processing", "50k"],
+                  ["Misc", "Netting", "45k"],
+                  [<span className="text-emerald-600 uppercase text-[10px]">Total</span>, "", <span className="text-emerald-600 font-black text-xl">650,000</span>],
+                ]}
+                highlightLast
+              />
+            </div>
+          </div>
         </div>
       ),
     },
     {
       id: "bsf-intro",
-      title: "Phase 10: Bio-Tech Startup",
+      title: "Phase 10: Bio-Tech Strategy",
       x: -6000,
       y: 3000,
       scale: 1,
       component: (
         <div className="flex flex-col items-center text-center w-full max-w-2xl px-6 mx-auto space-y-6">
           <PhaseLabel num="10" />
-          <h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">BSF <br /><span className="text-emerald-500">STARTUP</span></h2>
-          <p className="text-lg font-bold text-zinc-500 dark:text-zinc-400">Industrial protein conversion.</p>
+          <h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">Core <br /><span className="text-emerald-500">BENEFITS</span></h2>
           <div className="grid grid-cols-2 gap-4 w-full">
             {[ "Waste Sourcing", "Agri-Feed", "Zero-Cost", "Sustainable" ].map((f) => (
               <div key={f} className="flex items-center gap-3 p-4 rounded-xl border-2 border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-black uppercase text-zinc-600 dark:text-zinc-300 shadow-sm">
@@ -378,45 +419,20 @@ export default function App() {
               </div>
             ))}
           </div>
-        </div>
-      ),
-    },
-    {
-      id: "bsf-setup",
-      title: "Phase 11: BSF Startup Costs",
-      x: -9000,
-      y: 3000,
-      scale: 1,
-      component: (
-        <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto">
-          <div className="text-center"><PhaseLabel num="11" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">Startup <span className="text-emerald-500">COSTS</span></h2></div>
-          <Table
-            headers={["Asset", "Spec", "Cost"]}
-            rows={[
-              ["Farm Shed", "Enclosure", "275k"],
-              ["Larvae", "Seed", "8k"],
-              ["Trays", "15 Units", "120k"],
-              ["Cage", "Metallic", "80k"],
-              ["Logistics", "Transport", "72k"],
-              ["Drying", "Processing", "50k"],
-              ["Misc", "Netting", "45k"],
-              [<span className="text-emerald-600 uppercase text-[10px]">Total</span>, "", <span className="text-emerald-600 font-black">650,000</span>],
-            ]}
-            highlightLast
-          />
+          <SupportingText text="The BSF model is highly scalable and environmentally friendly, turning local problems (waste) into global solutions (protein)." />
         </div>
       ),
     },
     {
       id: "waste-logistics",
-      title: "Phase 12: Waste Logistics",
-      x: -12000,
+      title: "Phase 11: Waste Logistics",
+      x: -9000,
       y: 3000,
       scale: 1,
       component: (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full max-w-4xl px-6 mx-auto">
-          <div className="space-y-6">
-            <PhaseLabel num="12" />
+          <div className="space-y-6 text-center md:text-left">
+            <PhaseLabel num="11" />
             <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">Waste <br /><span className="text-emerald-500">SOURCING</span></h2>
             <div className="space-y-3">
               {[ { l: "Market", d: "Organic waste streams." }, { l: "Schools", d: "Consistent starch sources." } ].map((i) => (
@@ -426,6 +442,7 @@ export default function App() {
                 </div>
               ))}
             </div>
+            <SupportingText text="Securing free raw material (waste) from schools and markets ensures that the largest operational cost remains zero." />
           </div>
           <div className="aspect-square rounded-3xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl bg-zinc-100 relative">
             <img src="/images/black-soldier-containers.png" alt="" className="w-full h-full object-cover" />
@@ -436,19 +453,20 @@ export default function App() {
     },
     {
       id: "bsf-production",
-      title: "Phase 13: Yield Audit",
-      x: -12000,
+      title: "Phase 12: Yield Audit",
+      x: -9000,
       y: 6000,
       scale: 1,
       component: (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full max-w-4xl px-6 mx-auto">
-          <div className="space-y-6">
-            <PhaseLabel num="13" />
+          <div className="space-y-6 text-center md:text-left">
+            <PhaseLabel num="12" />
             <h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">Bio <span className="text-emerald-500">YIELD</span></h2>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center md:justify-start">
               <div className="px-5 py-3 rounded-2xl bg-zinc-900 text-white text-center shadow-lg"><p className="text-[10px] uppercase opacity-60 font-black mb-1">Target</p><p className="text-3xl font-black">70KG</p></div>
               <div className="px-5 py-3 rounded-2xl bg-emerald-500 text-white text-center shadow-lg"><p className="text-[10px] uppercase opacity-60 font-black mb-1">Rev</p><p className="text-3xl font-black">175k</p></div>
             </div>
+            <SupportingText text="A monthly output of 70KG allows for a significant profit margin after minimal logistics costs." />
           </div>
           <Table
             headers={["Param", "Basis", "Value"]}
@@ -465,13 +483,17 @@ export default function App() {
     },
     {
       id: "revenue-shift",
-      title: "Phase 14: Target Revenue",
-      x: -9000,
+      title: "Phase 13: Target Revenue",
+      x: -6000,
       y: 6000,
       scale: 1,
       component: (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full max-w-4xl px-6 mx-auto">
-          <div className="space-y-4"><PhaseLabel num="14" /><h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">Income <br /><span className="text-emerald-500">SHIFT</span></h2></div>
+          <div className="space-y-4 text-center md:text-left">
+            <PhaseLabel num="13" />
+            <h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">Income <br /><span className="text-emerald-500">SHIFT</span></h2>
+            <SupportingText text="The combination of Denim and BSF projects nearly quadruples the total monthly income from 60k to 260k." />
+          </div>
           <Table
             headers={["Vertical", "Amount (RWF)"]}
             rows={[
@@ -487,13 +509,13 @@ export default function App() {
     },
     {
       id: "new-budget",
-      title: "Phase 15: Strategic Budget",
-      x: -6000,
+      title: "Phase 14: Strategic Budget",
+      x: -3000,
       y: 6000,
       scale: 1,
       component: (
-        <div className="w-full max-w-3xl space-y-6 px-6 flex flex-col items-center mx-auto">
-          <div className="text-center"><PhaseLabel num="15" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">Revised <span className="text-emerald-500">SPEND</span></h2></div>
+        <div className="w-full max-w-3xl space-y-6 px-6 flex flex-col items-center mx-auto text-center">
+          <div><PhaseLabel num="14" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">Revised <span className="text-emerald-500">SPEND</span></h2></div>
           <Table
             headers={["Category", "Basis", "Amount"]}
             rows={[
@@ -508,37 +530,38 @@ export default function App() {
             ]}
             highlightLast
           />
+          <SupportingText text="Spending is now optimized for growth, with dedicated allocations for R&D and wealth stability." />
         </div>
       ),
     },
     {
       id: "wealth-engine",
-      title: "Phase 16: Prosperity Engine",
-      x: -3000,
+      title: "Phase 15: Prosperity Engine",
+      x: 0,
       y: 6000,
       scale: 1,
       component: (
         <div className="flex flex-col items-center gap-6 text-center px-6 max-w-lg mx-auto">
-          <PhaseLabel num="16" />
+          <PhaseLabel num="15" />
           <div className="p-10 rounded-3xl bg-emerald-600 text-white shadow-2xl w-full relative overflow-hidden border-4 border-emerald-400">
             <h2 className="text-xl font-black mb-1 uppercase tracking-widest">SURPLUS</h2>
             <div className="text-6xl font-black my-2 tracking-tighter">125,000 RWF</div>
             <p className="text-[12px] uppercase tracking-[0.2em] font-black opacity-80">Monthly Wealth Generation active.</p>
           </div>
-          <p className="text-zinc-500 dark:text-zinc-400 text-sm font-bold italic">Capital formation active.</p>
+          <SupportingText text="The 125,000 RWF monthly surplus is the engine that will build long-term generational wealth." />
         </div>
       ),
     },
     {
       id: "investments",
-      title: "Phase 17: Growth Strategy",
-      x: 0,
+      title: "Phase 16: Growth Strategy",
+      x: 3000,
       y: 6000,
       scale: 1,
       component: (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full max-w-4xl px-6 mx-auto">
-          <div className="space-y-6">
-            <PhaseLabel num="17" />
+          <div className="space-y-6 text-center md:text-left">
+            <PhaseLabel num="16" />
             <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">Growth <span className="text-emerald-500">DIVERSE</span></h2>
             <div className="space-y-2">
               {[ { n: "RNIT", v: "25k", r: "11.7% Yield" }, { n: "Shares", v: "15k", r: "BK Group" }, { n: "Savings", v: "85k", r: "Liquid" } ].map((i) => (
@@ -548,6 +571,7 @@ export default function App() {
                 </div>
               ))}
             </div>
+            <SupportingText text="Diversifying into high-yield funds (RNIT) and local stocks (BK) provides both security and passive growth." />
           </div>
           <div className="p-8 rounded-3xl bg-zinc-900 text-white border-b-8 border-emerald-500 text-center shadow-2xl">
             <h3 className="text-xs font-black uppercase mb-2 opacity-60">RNIT Cumulative Audit</h3>
@@ -558,13 +582,13 @@ export default function App() {
     },
     {
       id: "savings-path",
-      title: "Phase 18: Accumulation Path",
-      x: 3000,
+      title: "Phase 17: Accumulation Path",
+      x: 6000,
       y: 6000,
       scale: 1,
       component: (
-        <div className="w-full max-w-xl space-y-6 px-6 flex flex-col items-center mx-auto">
-          <div className="text-center"><PhaseLabel num="18" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">Wealth <span className="text-emerald-500">ACCUM</span></h2></div>
+        <div className="w-full max-w-xl space-y-6 px-6 flex flex-col items-center mx-auto text-center">
+          <div><PhaseLabel num="17" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">Wealth <span className="text-emerald-500">ACCUM</span></h2></div>
           <Table
             headers={["Milestone", "Fund", "Status"]}
             rows={[
@@ -574,39 +598,41 @@ export default function App() {
             ]}
             highlightLast
           />
+          <SupportingText text="By consistently saving, we reach a 'safety zone' of 480k RWF within a year, providing total financial peace of mind." />
         </div>
       ),
     },
     {
       id: "risk-audit",
-      title: "Phase 19: Risk Strategy",
-      x: 6000,
+      title: "Phase 18: Risk Strategy",
+      x: 9000,
       y: 6000,
       scale: 1,
       component: (
-        <div className="max-w-4xl w-full px-6 flex flex-col items-center mx-auto">
-          <PhaseLabel num="19" />
+        <div className="max-w-4xl w-full px-6 flex flex-col items-center mx-auto text-center">
+          <PhaseLabel num="18" />
           <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic mb-6">Defense <span className="text-rose-500">STRATEGY</span></h2>
           <div className="grid grid-cols-2 gap-4 w-full">
             {[ { r: "Demand Shift", s: "Iterative Design." }, { r: "Production Delays", s: "Backup Partners." }, { r: "Waste Supply", s: "Institutional Contracts." }, { r: "Competition", s: "Quality Differentiation." } ].map((i) => (
-              <div key={i.r} className="p-4 rounded-xl bg-white dark:bg-zinc-900 border-2 border-zinc-100 dark:border-zinc-800 text-xs font-bold uppercase shadow-sm">
+              <div key={i.r} className="p-4 rounded-xl bg-white dark:bg-zinc-900 border-2 border-zinc-100 dark:border-zinc-800 text-xs font-bold uppercase shadow-sm text-left">
                 <h3 className="text-zinc-900 dark:text-white text-lg mb-1">{i.r}</h3>
                 <p className="text-zinc-500">{i.s}</p>
               </div>
             ))}
           </div>
+          <SupportingText text="Every business has risks. Our strategy focuses on backup partners and institutional contracts to mitigate them." />
         </div>
       ),
     },
     {
       id: "conclusion",
-      title: "Phase 20: Strategic Resolution",
-      x: 9000,
-      y: 7000,
+      title: "Phase 19: Strategic Resolution",
+      x: 12000,
+      y: 6000,
       scale: 1,
       component: (
         <div className="max-w-xl text-center space-y-8 px-6 mx-auto">
-          <PhaseLabel num="20" />
+          <PhaseLabel num="19" />
           <div className="w-20 h-20 bg-zinc-900 dark:bg-white rounded-3xl mx-auto flex items-center justify-center text-white dark:text-zinc-900 shadow-2xl border-4 border-emerald-500">
             <CheckCircle2 size={48} />
           </div>
@@ -656,6 +682,21 @@ export default function App() {
           {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
         </button>
       </div>
+
+      {/* Sticky Background Image for Denim Project (Phases 07 & 08) */}
+      <AnimatePresence>
+        {(activeSection === 6 || activeSection === 7) && (
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="fixed bottom-10 left-10 z-40 w-64 aspect-square rounded-2xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl pointer-events-none"
+          >
+            <img src="/images/collected-jeans-pile.png" alt="Raw Denim" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-indigo-500/10" />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Prezi Stage */}
       <motion.main
