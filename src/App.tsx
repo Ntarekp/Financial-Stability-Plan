@@ -200,7 +200,7 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             className="relative z-10 px-6 text-center"
           >
-            <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black text-zinc-950 dark:text-white tracking-[-0.06em] mb-12 leading-[0.8] uppercase mx-auto transition-colors text-center">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-[110px] 2xl:text-[140px] font-black text-zinc-950 dark:text-white tracking-[-0.06em] mb-12 leading-[0.8] uppercase mx-auto transition-colors text-center">
               Financial <br />
               <span className="text-emerald-500 italic">Stability</span> <br />
               <span className="text-zinc-200 dark:text-zinc-800">
@@ -438,7 +438,7 @@ export default function App() {
       y: 2000,
       scale: 1,
       component: (
-        <div className="relative w-full max-w-7xl px-6 lg:px-8 flex flex-col items-center min-h-[85vh] justify-center">
+        <div className="relative w-full max-w-7xl px-6 lg:px-8 flex flex-col items-center min-h-[80vh] lg:min-h-[85vh] justify-center">
           {/* Decoupled Background Layer - Truly unrelated to foreground flow */}
           <div className="absolute inset-0 pointer-events-none -z-20 overflow-visible select-none">
             <motion.div
@@ -519,7 +519,7 @@ export default function App() {
       y: 2000,
       scale: 1,
       component: (
-        <div className="relative w-full max-w-7xl px-6 lg:px-12 flex flex-col items-center min-h-[85vh] justify-center">
+        <div className="relative w-full max-w-7xl px-6 lg:px-12 flex flex-col items-center min-h-[80vh] lg:min-h-[85vh] justify-center">
           {/* Background Parallax Image - Better Contained */}
           <div className="absolute inset-0 pointer-events-none -z-10 overflow-visible">
             <motion.div
@@ -825,10 +825,10 @@ export default function App() {
             </div>
           </div>
 
-          {/* Surgical 'Needle Hole' Persisting Video - Positioned Safely Bottom Left */}
+          {/* Surgical 'Needle Hole' Persisting Video - Positioned Safely Bottom Left with larger size */}
           <motion.div
             layoutId="bsf-video"
-            className="absolute bottom-4 left-4 w-32 md:w-56 aspect-video rounded-xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl z-20 hidden lg:block grayscale hover:grayscale-0 transition-all duration-700 pointer-events-auto"
+            className="absolute bottom-0 left-[-5%] w-48 md:w-80 aspect-video rounded-2xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-3xl z-20 hidden lg:block transition-all duration-700 pointer-events-auto"
           >
             <video
               src="/images/bsfl-farming.mp4"
@@ -838,6 +838,7 @@ export default function App() {
               playsInline
               className="w-full h-full object-cover"
             />
+            <div className="absolute inset-0 bg-emerald-500/10 mix-blend-overlay" />
           </motion.div>
         </div>
       ),
@@ -1373,7 +1374,10 @@ export default function App() {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="relative">
-              <div className="relative z-10 py-20 md:py-40 w-screen md:w-auto md:min-w-[800px] lg:min-w-[1200px] px-6 md:px-0 flex justify-center">
+              <div
+                className="relative z-10 py-16 xl:py-40 w-screen md:w-auto 
+  md:min-w-[700px] lg:min-w-[900px] xl:min-w-[1100px] px-6 md:px-0 flex justify-center"
+              >
                 {section.component}
               </div>
             </div>
