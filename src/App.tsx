@@ -305,20 +305,23 @@ export default function App() {
           <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto text-center relative z-10">
             <div><PhaseLabel num="07" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase leading-none">Material <span className="text-indigo-600">INPUTS</span></h2></div>
             <Table
-              headers={["Material", "Budget (RWF)"]}
+              headers={["Material", "Cost (RWF)"]}
               rows={[
-                ["Jeans", "50,000"],
-                ["Thread/Zips", "20,000"],
-                ["Inner Lining", "15,000"],
-                ["Hardware", "10,000"],
-                ["Packaging", "30,000"],
-                ["Marketing", "40,000"],
-                ["Buffer", "40,000"],
-                [<span className="text-indigo-600 uppercase text-[10px]">Total</span>, <span className="text-indigo-600 font-black">205,000</span>],
+                ["Second-hand jeans", "50,000"],
+                ["Zippers", "15,000"],
+                ["Thread", "5,000"],
+                ["Inner lining fabric", "15,000"],
+                ["Handles/straps", "10,000"],
+                ["Labels & decorations", "10,000"],
+                ["Labels, Decorations & Packaging", "20,000"],
+                ["Marketing and Transport", "40,000"],
+                ["Extra material reserver", "50,000"],
+                [<span className="text-indigo-600 uppercase text-[10px]">Total Materials</span>, <span className="text-indigo-600 font-black">205,000</span>],
               ]}
               highlightLast
             />
-            <SupportingText text="The Denim Bags project begins with a 205,000 RWF investment in raw materials and market entry." />
+            <SupportingText text="Based on the MMO documentation, we collect second-hand jeans and transform them into reusable bags. This table details the raw material consumption for a production cycle." />
+            <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mt-4">Ref: MMO Documentation Page 3</div>
           </div>
         </div>
       ),
@@ -335,18 +338,25 @@ export default function App() {
             <div className="space-y-6 text-center md:text-left">
               <PhaseLabel num="08" />
               <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">Tailor <br /><span className="text-indigo-600">LOGIC</span></h2>
-              <div className="p-6 rounded-2xl bg-indigo-600 text-white shadow-xl inline-block">
-                <span className="text-[10px] font-black uppercase opacity-60">Unit Rate</span>
-                <p className="text-4xl font-black tracking-tighter mt-1">3,500 <span className="text-sm font-normal opacity-50">RWF</span></p>
+              <div className="flex flex-col gap-4">
+                <div className="p-6 rounded-2xl bg-indigo-600 text-white shadow-xl inline-block">
+                  <span className="text-[10px] font-black uppercase opacity-60">Unit Rate</span>
+                  <p className="text-4xl font-black tracking-tighter mt-1">3,500 <span className="text-sm font-normal opacity-50">RWF</span></p>
+                </div>
+                <div className="p-4 rounded-xl bg-emerald-500 text-white shadow-lg inline-block">
+                  <span className="text-[10px] font-black uppercase opacity-60">Est. Profit / Cycle</span>
+                  <p className="text-2xl font-black tracking-tighter mt-1">55,000 <span className="text-sm font-normal opacity-50">RWF</span></p>
+                </div>
               </div>
-              <SupportingText text="A fixed production cost of 3,500 RWF per unit ensures predictable margins as we scale to 40 bags per month." />
+              <SupportingText text="Total Production Cost (345k) vs Revenue (400k) yields a 55,000 RWF profit per cycle. This is the first engine of our sustainability plan." />
+              <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mt-2">Ref: MMO Documentation Page 4</div>
             </div>
             <Table
-              headers={["Production", "Rate", "Subtotal"]}
+              headers={["Item", "Basis", "Value"]}
               rows={[
-                ["Target", "40 Bags", "Fixed"],
-                ["Labour", "3,500", "Unit"],
-                [<span className="text-indigo-600 uppercase text-[10px]">Basis</span>, "", <span className="font-black text-2xl">140,000</span>],
+                ["Materials", "Fixed", "205,000"],
+                ["Labour", "40 Bags", "140,000"],
+                [<span className="text-indigo-600 uppercase text-[10px]">Total Cost</span>, "", <span className="font-black text-2xl">345,000</span>],
               ]}
               highlightLast
             />
@@ -355,17 +365,81 @@ export default function App() {
       ),
     },
     {
-      id: "bsf-project-start",
-      title: "Phase 09: BSF Startup & Costs",
+      id: "bsf-problem",
+      title: "Phase 09: BSF Introduction",
       x: -3000,
+      y: 3000,
+      scale: 1,
+      component: (
+        <div className="flex flex-col items-center text-center w-full max-w-3xl px-6 mx-auto space-y-8">
+          <PhaseLabel num="09" />
+          <h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">BSF <span className="text-emerald-500">PROBLEM & SOLUTION</span></h2>
+          <div className="space-y-4 max-w-xl">
+             <p className="text-lg font-bold text-zinc-700 dark:text-zinc-300">
+               Black Soldier Fly larvae are used as high-protein animal feed for poultry, fish, and pig farmers.
+             </p>
+             <div className="p-6 bg-emerald-50 dark:bg-emerald-900/10 border-l-4 border-emerald-500 rounded-r-xl text-left">
+                <h4 className="text-sm font-black uppercase text-emerald-600 mb-2">The Problem</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">
+                  Traditional animal feed is expensive and organic waste management is a growing challenge for local communities.
+                </p>
+             </div>
+             <div className="p-6 bg-zinc-50 dark:bg-zinc-800 border-l-4 border-zinc-500 rounded-r-xl text-left">
+                <h4 className="text-sm font-black uppercase text-zinc-600 mb-2">The Bio-Tech Solution</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">
+                  The larvae feed on organic waste, turning it into high-value protein, making the production process environmentally sustainable and highly profitable.
+                </p>
+             </div>
+          </div>
+          <SupportingText text="This biotech engine converts local waste into an essential agricultural resource." />
+          <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mt-4">Ref: MMO Documentation Page 4</div>
+        </div>
+      ),
+    },
+    {
+      id: "waste-logistics",
+      title: "Phase 10: Waste Sourcing",
+      x: -6000,
+      y: 3000,
+      scale: 1,
+      component: (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full max-w-4xl px-6 mx-auto">
+          <div className="space-y-6 text-center md:text-left">
+            <PhaseLabel num="10" />
+            <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">Waste <br /><span className="text-emerald-500">SOURCING</span></h2>
+            <div className="space-y-3">
+              {[ 
+                { l: "Local Markets", d: "Organic waste is mostly freely given." }, 
+                { l: "Schools", d: "Partnering for starch-rich food leftovers." },
+                { l: "Restaurants", d: "Consistent high-volume organic supply." }
+              ].map((i) => (
+                <div key={i.l} className="p-4 bg-white dark:bg-zinc-900 rounded-xl border-2 border-zinc-100 dark:border-zinc-800 text-xs font-bold uppercase shadow-sm">
+                  <h4 className="text-zinc-900 dark:text-white text-lg leading-none mb-1">{i.l}</h4>
+                  <p className="text-zinc-500">{i.d}</p>
+                </div>
+              ))}
+            </div>
+            <SupportingText text="Securing free raw material (waste) from institutional partners ensures that the largest operational cost remains zero." />
+            <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mt-4">Ref: MMO Documentation Page 4</div>
+          </div>
+          <div className="aspect-square rounded-3xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl bg-zinc-100 relative">
+            <img src="/images/black-soldier-containers.png" alt="" className="w-full h-full object-cover" />
+            <div className="absolute bottom-4 right-4 px-3 py-1 bg-zinc-900 text-white rounded-lg text-[10px] font-black uppercase border-2 border-emerald-500">Zero Cost Input</div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "bsf-startup-costs",
+      title: "Phase 11: Startup Costs",
+      x: -9000,
       y: 3000,
       scale: 1,
       component: (
         <div className="flex flex-col items-center justify-center w-full max-w-6xl px-6 mx-auto space-y-10">
           <div className="text-center w-full">
-            <PhaseLabel num="09" />
-            <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">BSF <span className="text-emerald-500">STARTUP ENGINE</span></h2>
-            <SupportingText text="The second project: Black Soldier Fly (BSF) farming. This biotech engine converts organic waste into high-value protein and fertilizer." />
+            <PhaseLabel num="11" />
+            <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">BSF <span className="text-emerald-500">STARTUP COSTS</span></h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full">
@@ -379,74 +453,27 @@ export default function App() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 bg-emerald-500 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-lg">High Res Process</div>
+              <div className="absolute bottom-4 left-4 bg-emerald-500 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-lg">Process Visualization</div>
             </div>
             
             <div className="space-y-4">
               <Table
-                headers={["Asset", "Spec", "Cost"]}
+                headers={["Item", "Cost (RWF)"]}
                 rows={[
-                  ["Farm Shed", "Enclosure", "275k"],
-                  ["Larvae", "Seed", "8k"],
-                  ["Trays", "15 Units", "120k"],
-                  ["Cage", "Metallic", "80k"],
-                  ["Logistics", "Transport", "72k"],
-                  ["Drying", "Processing", "50k"],
-                  ["Misc", "Netting", "45k"],
-                  [<span className="text-emerald-600 uppercase text-[10px]">Total</span>, "", <span className="text-emerald-600 font-black text-xl">650,000</span>],
+                  ["Farm shed Construction", "275,000"],
+                  ["Starter larvae colony", "8,000"],
+                  ["Rearing trays (15)", "120,000"],
+                  ["Buckets and containers", "30,000"],
+                  ["Breeding cage structure", "80,000"],
+                  ["Waste collection transport", "72,000"],
+                  ["Drying Racks", "50,000"],
+                  ["Protective netting", "15,000"],
+                  [<span className="text-emerald-600 uppercase text-[10px]">Total Setup Cost</span>, <span className="text-emerald-600 font-black text-xl">650,000</span>],
                 ]}
                 highlightLast
               />
+              <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest text-right">Ref: MMO Documentation Page 4-5</div>
             </div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: "bsf-intro",
-      title: "Phase 10: Bio-Tech Strategy",
-      x: -6000,
-      y: 3000,
-      scale: 1,
-      component: (
-        <div className="flex flex-col items-center text-center w-full max-w-2xl px-6 mx-auto space-y-6">
-          <PhaseLabel num="10" />
-          <h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">Core <br /><span className="text-emerald-500">BENEFITS</span></h2>
-          <div className="grid grid-cols-2 gap-4 w-full">
-            {[ "Waste Sourcing", "Agri-Feed", "Zero-Cost", "Sustainable" ].map((f) => (
-              <div key={f} className="flex items-center gap-3 p-4 rounded-xl border-2 border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-black uppercase text-zinc-600 dark:text-zinc-300 shadow-sm">
-                <CheckCircle2 className="text-emerald-500 w-5 h-5 shrink-0" /> {f}
-              </div>
-            ))}
-          </div>
-          <SupportingText text="The BSF model is highly scalable and environmentally friendly, turning local problems (waste) into global solutions (protein)." />
-        </div>
-      ),
-    },
-    {
-      id: "waste-logistics",
-      title: "Phase 11: Waste Logistics",
-      x: -9000,
-      y: 3000,
-      scale: 1,
-      component: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full max-w-4xl px-6 mx-auto">
-          <div className="space-y-6 text-center md:text-left">
-            <PhaseLabel num="11" />
-            <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">Waste <br /><span className="text-emerald-500">SOURCING</span></h2>
-            <div className="space-y-3">
-              {[ { l: "Market", d: "Organic waste streams." }, { l: "Schools", d: "Consistent starch sources." } ].map((i) => (
-                <div key={i.l} className="p-4 bg-white dark:bg-zinc-900 rounded-xl border-2 border-zinc-100 dark:border-zinc-800 text-xs font-bold uppercase shadow-sm">
-                  <h4 className="text-zinc-900 dark:text-white text-lg leading-none mb-1">{i.l}</h4>
-                  <p className="text-zinc-500">{i.d}</p>
-                </div>
-              ))}
-            </div>
-            <SupportingText text="Securing free raw material (waste) from schools and markets ensures that the largest operational cost remains zero." />
-          </div>
-          <div className="aspect-square rounded-3xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl bg-zinc-100 relative">
-            <img src="/images/black-soldier-containers.png" alt="" className="w-full h-full object-cover" />
-            <div className="absolute bottom-4 right-4 px-3 py-1 bg-zinc-900 text-white rounded-lg text-[10px] font-black uppercase border-2 border-emerald-500">Zero Cost Input</div>
           </div>
         </div>
       ),
