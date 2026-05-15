@@ -158,7 +158,7 @@ export default function App() {
           </div>
           <div className="space-y-6">
             <PhaseLabel num="01" />
-            <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black text-zinc-900 dark:text-white tracking-tight leading-none uppercase transition-colors">
+            <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-black text-black dark:text-white tracking-tight leading-none uppercase transition-colors">
               Financial <br />
               <span className="text-emerald-500 italic">Sustainability</span> <br />
               <span className="text-zinc-600 dark:text-zinc-400">Strategy</span>
@@ -186,7 +186,7 @@ export default function App() {
       scale: 1,
       component: (
         <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto text-center">
-          <div><PhaseLabel num="02" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase italic leading-none">Current <span className="text-emerald-500">INCOME</span></h2></div>
+          <div><PhaseLabel num="02" /><h2 className="text-3xl font-black text-black dark:text-white uppercase italic leading-none">Current <span className="text-emerald-500">INCOME</span></h2></div>
           <Table
             headers={["Source", "Context", "Amount"]}
             rows={[
@@ -209,7 +209,7 @@ export default function App() {
       scale: 1,
       component: (
         <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto text-center">
-          <div><PhaseLabel num="03" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase italic leading-none">Current <span className="text-rose-500">SPEND</span></h2></div>
+          <div><PhaseLabel num="03" /><h2 className="text-3xl font-black text-black dark:text-white uppercase italic leading-none">Current <span className="text-rose-500">SPEND</span></h2></div>
           <Table
             headers={["Category", "Usage", "Amount"]}
             rows={[
@@ -251,7 +251,7 @@ export default function App() {
       scale: 1,
       component: (
         <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto text-center">
-          <div><PhaseLabel num="05" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase italic leading-none">Debt <span className="text-rose-500">SITUATION</span></h2></div>
+          <div><PhaseLabel num="05" /><h2 className="text-3xl font-black text-black dark:text-white uppercase italic leading-none">Debt <span className="text-rose-500">SITUATION</span></h2></div>
           <Table
             headers={["Creditor", "Context", "Debt"]}
             rows={[
@@ -276,20 +276,20 @@ export default function App() {
         <div className="flex flex-col md:flex-row gap-10 items-center justify-center w-full max-w-4xl px-6 mx-auto">
           <div className="space-y-6 text-center md:text-left shrink-0">
             <PhaseLabel num="06" />
-            <h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">Support <span className="text-emerald-500">SPLIT</span></h2>
+            <h2 className="text-5xl font-black text-black dark:text-white tracking-tighter uppercase leading-none">Support <span className="text-emerald-500">SPLIT</span></h2>
             <div className="space-y-2 w-72 mx-auto md:mx-0">
-              {[ { n: "Debt", v: "150k" }, { n: "Buffer", v: "150k" }, { n: "Invest", v: "1.2M" } ].map((i) => (
+              {[ { n: "Debt", v: "150,000" }, { n: "Buffer", v: "150,000" }, { n: "Invest", v: "1,200,000" } ].map((i) => (
                 <div key={i.n} className="px-4 py-2 rounded-lg bg-zinc-50 dark:bg-zinc-800 border-2 border-zinc-200 dark:border-zinc-700 flex justify-between items-center text-xs font-bold uppercase">
                   <span className="text-zinc-500 dark:text-zinc-400">{i.n}</span>
-                  <span className="text-zinc-900 dark:text-white">{i.v}</span>
+                  <span className="text-black dark:text-white">{i.v}</span>
                 </div>
               ))}
             </div>
-            <SupportingText text="A 1.5M RWF seed fund is allocated to clear debt, create a buffer, and fuel the main investment engines." />
+            <SupportingText text="A 1,500,000 RWF seed fund is allocated to clear debt, create a buffer, and fuel the main investment engines." />
           </div>
-          <div className="w-64 aspect-square bg-emerald-500 text-white rounded-3xl flex flex-col items-center justify-center shadow-2xl border-4 border-emerald-400 shrink-0">
+          <div className="w-64 aspect-square bg-emerald-500 dark:bg-emerald-600 text-white rounded-3xl flex flex-col items-center justify-center shadow-2xl border-4 border-emerald-400 shrink-0">
               <p className="text-[10px] font-black uppercase opacity-60">Total Seed</p>
-              <p className="text-6xl font-black tracking-tighter">1.5M</p>
+              <p className="text-5xl font-black tracking-tighter">1,500,000</p>
           </div>
         </div>
       ),
@@ -303,7 +303,7 @@ export default function App() {
       component: (
         <div className="w-full h-full flex items-center justify-center">
           <div className="w-full max-w-2xl space-y-6 px-6 flex flex-col items-center mx-auto text-center relative z-10">
-            <div><PhaseLabel num="07" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase leading-none">Material <span className="text-indigo-600">INPUTS</span></h2></div>
+            <div><PhaseLabel num="07" /><h2 className="text-3xl font-black text-black dark:text-white uppercase leading-none">Material <span className="text-indigo-600">INPUTS</span></h2></div>
             <Table
               headers={["Material", "Cost (RWF)"]}
               rows={[
@@ -320,8 +320,7 @@ export default function App() {
               ]}
               highlightLast
             />
-            <SupportingText text="Based on the MMO documentation, we collect second-hand jeans and transform them into reusable bags. This table details the raw material consumption for a production cycle." />
-            <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mt-4">Ref: MMO Documentation Page 3</div>
+            <SupportingText text="The Denim Bags project collects second-hand jeans and transforms them into reusable bags. This table details the raw material consumption for a production cycle." />
           </div>
         </div>
       ),
@@ -337,19 +336,19 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full max-w-4xl px-6 mx-auto relative z-10">
             <div className="space-y-6 text-center md:text-left">
               <PhaseLabel num="08" />
-              <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">Tailor <br /><span className="text-indigo-600">LOGIC</span></h2>
+              <h2 className="text-4xl font-black text-black dark:text-white tracking-tighter uppercase italic leading-[0.85]">Tailor <br /><span className="text-indigo-600">LOGIC</span></h2>
               <div className="flex flex-col gap-4">
                 <div className="p-6 rounded-2xl bg-indigo-600 text-white shadow-xl inline-block">
                   <span className="text-[10px] font-black uppercase opacity-60">Unit Rate</span>
                   <p className="text-4xl font-black tracking-tighter mt-1">3,500 <span className="text-sm font-normal opacity-50">RWF</span></p>
                 </div>
-                <div className="p-4 rounded-xl bg-emerald-500 text-white shadow-lg inline-block">
-                  <span className="text-[10px] font-black uppercase opacity-60">Est. Profit / Cycle</span>
-                  <p className="text-2xl font-black tracking-tighter mt-1">55,000 <span className="text-sm font-normal opacity-50">RWF</span></p>
+                <div className="p-4 rounded-xl bg-emerald-100 dark:bg-emerald-600 text-emerald-900 dark:text-white shadow-lg inline-block border border-emerald-200 dark:border-transparent">
+                  <span className="text-[10px] font-black uppercase opacity-60 italic">Calculation</span>
+                  <p className="text-xl font-black tracking-tighter mt-1">400,000 <span className="opacity-50">-</span> 345,000 <span className="opacity-50">=</span> 55,000</p>
+                  <span className="text-[10px] font-bold block mt-1 uppercase opacity-60 tracking-widest text-emerald-700 dark:text-emerald-200">Net Profit / Cycle</span>
                 </div>
               </div>
-              <SupportingText text="Total Production Cost (345k) vs Revenue (400k) yields a 55,000 RWF profit per cycle. This is the first engine of our sustainability plan." />
-              <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mt-2">Ref: MMO Documentation Page 4</div>
+              <SupportingText text="Total Production Cost (345,000) vs Revenue (400,000) yields a 55,000 RWF profit per cycle. This is the first engine of our sustainability plan." />
             </div>
             <Table
               headers={["Item", "Basis", "Value"]}
@@ -371,28 +370,33 @@ export default function App() {
       y: 3000,
       scale: 1,
       component: (
-        <div className="flex flex-col items-center text-center w-full max-w-3xl px-6 mx-auto space-y-8">
-          <PhaseLabel num="09" />
-          <h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">BSF <span className="text-emerald-500">PROBLEM & SOLUTION</span></h2>
-          <div className="space-y-4 max-w-xl">
-             <p className="text-lg font-bold text-zinc-700 dark:text-zinc-300">
-               Black Soldier Fly larvae are used as high-protein animal feed for poultry, fish, and pig farmers.
-             </p>
-             <div className="p-6 bg-emerald-50 dark:bg-emerald-900/10 border-l-4 border-emerald-500 rounded-r-xl text-left">
-                <h4 className="text-sm font-black uppercase text-emerald-600 mb-2">The Problem</h4>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">
-                  Traditional animal feed is expensive and organic waste management is a growing challenge for local communities.
-                </p>
-             </div>
-             <div className="p-6 bg-zinc-50 dark:bg-zinc-800 border-l-4 border-zinc-500 rounded-r-xl text-left">
-                <h4 className="text-sm font-black uppercase text-zinc-600 mb-2">The Bio-Tech Solution</h4>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">
-                  The larvae feed on organic waste, turning it into high-value protein, making the production process environmentally sustainable and highly profitable.
-                </p>
-             </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full max-w-6xl px-6 mx-auto relative z-10">
+          <div className="space-y-8 text-center md:text-left">
+            <PhaseLabel num="09" />
+            <h2 className="text-5xl font-black text-black dark:text-white tracking-tighter uppercase italic leading-[0.85]">BSF <span className="text-emerald-500">PROBLEM & <br /> SOLUTION</span></h2>
+            <div className="space-y-4">
+               <p className="text-lg font-bold text-zinc-700 dark:text-zinc-300">
+                 Black Soldier Fly larvae are used as high-protein animal feed for poultry, fish, and pig farmers.
+               </p>
+               <div className="p-6 bg-emerald-50 dark:bg-emerald-900/10 border-l-4 border-emerald-500 rounded-r-xl text-left transition-colors">
+                  <h4 className="text-sm font-black uppercase text-emerald-700 dark:text-emerald-500 mb-2">The Problem</h4>
+                  <p className="text-sm text-black dark:text-zinc-300 font-medium">
+                    Traditional animal feed is expensive and organic waste management is a growing challenge for local communities.
+                  </p>
+               </div>
+               <div className="p-6 bg-zinc-50 dark:bg-zinc-800 border-l-4 border-zinc-600 rounded-r-xl text-left transition-colors">
+                  <h4 className="text-sm font-black uppercase text-zinc-700 dark:text-zinc-400 mb-2">The Bio-Tech Solution</h4>
+                  <p className="text-sm text-black dark:text-zinc-300 font-medium">
+                    The larvae feed on organic waste, turning it into high-value protein, making the production process environmentally sustainable and highly profitable.
+                  </p>
+               </div>
+            </div>
+            <SupportingText text="This biotech engine converts local waste into an essential agricultural resource." />
           </div>
-          <SupportingText text="This biotech engine converts local waste into an essential agricultural resource." />
-          <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mt-4">Ref: MMO Documentation Page 4</div>
+          
+          <div className="aspect-[4/5] md:aspect-square rounded-3xl overflow-hidden hidden md:block">
+            {/* The actual parallax video moves into this right-side anchor point */}
+          </div>
         </div>
       ),
     },
@@ -406,7 +410,7 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full max-w-4xl px-6 mx-auto">
           <div className="space-y-6 text-center md:text-left">
             <PhaseLabel num="10" />
-            <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">Waste <br /><span className="text-emerald-500">SOURCING</span></h2>
+            <h2 className="text-4xl font-black text-black dark:text-white tracking-tighter uppercase leading-none">Waste <br /><span className="text-emerald-500">SOURCING</span></h2>
             <div className="space-y-3">
               {[ 
                 { l: "Local Markets", d: "Organic waste is mostly freely given." }, 
@@ -414,17 +418,16 @@ export default function App() {
                 { l: "Restaurants", d: "Consistent high-volume organic supply." }
               ].map((i) => (
                 <div key={i.l} className="p-4 bg-white dark:bg-zinc-900 rounded-xl border-2 border-zinc-100 dark:border-zinc-800 text-xs font-bold uppercase shadow-sm">
-                  <h4 className="text-zinc-900 dark:text-white text-lg leading-none mb-1">{i.l}</h4>
+                  <h4 className="text-black dark:text-white text-lg leading-none mb-1">{i.l}</h4>
                   <p className="text-zinc-500">{i.d}</p>
                 </div>
               ))}
             </div>
             <SupportingText text="Securing free raw material (waste) from institutional partners ensures that the largest operational cost remains zero." />
-            <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mt-4">Ref: MMO Documentation Page 4</div>
           </div>
           <div className="aspect-square rounded-3xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl bg-zinc-100 relative">
             <img src="/images/black-soldier-containers.png" alt="" className="w-full h-full object-cover" />
-            <div className="absolute bottom-4 right-4 px-3 py-1 bg-zinc-900 text-white rounded-lg text-[10px] font-black uppercase border-2 border-emerald-500">Zero Cost Input</div>
+            <div className="absolute bottom-4 right-4 px-3 py-1 bg-zinc-100 dark:bg-white text-black dark:text-black border-2 border-zinc-200 dark:border-transparent">Zero Cost Input</div>
           </div>
         </div>
       ),
@@ -436,44 +439,28 @@ export default function App() {
       y: 3000,
       scale: 1,
       component: (
-        <div className="flex flex-col items-center justify-center w-full max-w-6xl px-6 mx-auto space-y-10">
+        <div className="flex flex-col items-center justify-center w-full max-w-3xl px-6 mx-auto space-y-10">
           <div className="text-center w-full">
             <PhaseLabel num="11" />
-            <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">BSF <span className="text-emerald-500">STARTUP COSTS</span></h2>
+            <h2 className="text-4xl font-black text-black dark:text-white tracking-tighter uppercase italic">BSF <span className="text-emerald-500">STARTUP COSTS</span></h2>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full">
-            <div className="w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-emerald-500/20 bg-black group relative">
-              <video
-                src="/images/bsfl-farming.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 bg-emerald-500 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-lg">Process Visualization</div>
-            </div>
-            
-            <div className="space-y-4">
-              <Table
-                headers={["Item", "Cost (RWF)"]}
-                rows={[
-                  ["Farm shed Construction", "275,000"],
-                  ["Starter larvae colony", "8,000"],
-                  ["Rearing trays (15)", "120,000"],
-                  ["Buckets and containers", "30,000"],
-                  ["Breeding cage structure", "80,000"],
-                  ["Waste collection transport", "72,000"],
-                  ["Drying Racks", "50,000"],
-                  ["Protective netting", "15,000"],
-                  [<span className="text-emerald-600 uppercase text-[10px]">Total Setup Cost</span>, <span className="text-emerald-600 font-black text-xl">650,000</span>],
-                ]}
-                highlightLast
-              />
-              <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest text-right">Ref: MMO Documentation Page 4-5</div>
-            </div>
+          <div className="w-full">
+            <Table
+              headers={["Item", "Cost (RWF)"]}
+              rows={[
+                ["Farm shed Construction", "275,000"],
+                ["Starter larvae colony", "8,000"],
+                ["Rearing trays (15)", "120,000"],
+                ["Buckets and containers", "30,000"],
+                ["Breeding cage structure", "80,000"],
+                ["Waste collection transport", "72,000"],
+                ["Drying Racks", "50,000"],
+                ["Protective netting", "15,000"],
+                [<span className="text-emerald-600 uppercase text-[10px]">Total Setup Cost</span>, <span className="text-emerald-600 font-black text-xl">650,000</span>],
+              ]}
+              highlightLast
+            />
           </div>
         </div>
       ),
@@ -488,10 +475,14 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full max-w-4xl px-6 mx-auto">
           <div className="space-y-6 text-center md:text-left">
             <PhaseLabel num="12" />
-            <h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">Bio <span className="text-emerald-500">YIELD</span></h2>
+            <h2 className="text-5xl font-black text-black dark:text-white tracking-tighter uppercase italic leading-[0.85]">Bio <span className="text-emerald-500">YIELD</span></h2>
             <div className="flex gap-4 justify-center md:justify-start">
-              <div className="px-5 py-3 rounded-2xl bg-zinc-900 text-white text-center shadow-lg"><p className="text-[10px] uppercase opacity-60 font-black mb-1">Target</p><p className="text-3xl font-black">70KG</p></div>
-              <div className="px-5 py-3 rounded-2xl bg-emerald-500 text-white text-center shadow-lg"><p className="text-[10px] uppercase opacity-60 font-black mb-1">Rev</p><p className="text-3xl font-black">175k</p></div>
+              <div className="px-5 py-3 rounded-2xl bg-zinc-100 dark:bg-white text-black text-center shadow-lg border border-zinc-200 dark:border-transparent transition-colors"><p className="text-[10px] uppercase opacity-60 font-black mb-1">Target</p><p className="text-3xl font-black">70 KG</p></div>
+              <div className="px-5 py-3 rounded-2xl bg-emerald-100 dark:bg-emerald-600 text-emerald-900 dark:text-white text-center shadow-lg border border-emerald-200 dark:border-transparent transition-colors">
+                <p className="text-[10px] uppercase opacity-60 font-black mb-1 italic">Calculation</p>
+                <p className="text-xl font-black tracking-tighter">175,000 <span className="opacity-40">-</span> 30,000 <span className="opacity-40">=</span> 145,000</p>
+                <span className="text-[10px] font-bold block mt-1 uppercase opacity-60 tracking-widest">Net Profit</span>
+              </div>
             </div>
             <SupportingText text="A monthly output of 70KG allows for a significant profit margin after minimal logistics costs." />
           </div>
@@ -518,8 +509,8 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full max-w-4xl px-6 mx-auto">
           <div className="space-y-4 text-center md:text-left">
             <PhaseLabel num="13" />
-            <h2 className="text-5xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">Income <br /><span className="text-emerald-500">SHIFT</span></h2>
-            <SupportingText text="The combination of Denim and BSF projects nearly quadruples the total monthly income from 60k to 260k." />
+            <h2 className="text-5xl font-black text-black dark:text-white tracking-tighter uppercase italic">Income <br /><span className="text-emerald-500">SHIFT</span></h2>
+            <SupportingText text="The combination of Denim and BSF projects nearly quadruples the total monthly income from 60,000 to 260,000." />
           </div>
           <Table
             headers={["Vertical", "Amount (RWF)"]}
@@ -542,18 +533,18 @@ export default function App() {
       scale: 1,
       component: (
         <div className="w-full max-w-3xl space-y-6 px-6 flex flex-col items-center mx-auto text-center">
-          <div><PhaseLabel num="14" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">Revised <span className="text-emerald-500">SPEND</span></h2></div>
+          <div><PhaseLabel num="14" /><h2 className="text-3xl font-black text-black dark:text-white tracking-tighter uppercase italic">Revised <span className="text-emerald-500">SPEND</span></h2></div>
           <Table
             headers={["Category", "Basis", "Amount"]}
             rows={[
-              ["Transport", "Commute", "18k"],
-              ["Food", "Nutrition", "25k"],
-              ["Data", "Research", "10k"],
-              ["Growth", "R&D", "35k"],
-              ["Stability", "Wealth", "30k"],
-              ["Emergency", "Savings", "10k"],
-              ["Buffer", "Misc", "7k"],
-              [<span className="text-emerald-600 uppercase text-[10px]">Total</span>, "", <span className="text-emerald-600 font-black">135k</span>],
+              ["Transport", "Commute", "18,000"],
+              ["Food", "Nutrition", "25,000"],
+              ["Data", "Research", "10,000"],
+              ["Growth", "R&D", "35,000"],
+              ["Stability", "Wealth", "30,000"],
+              ["Emergency", "Savings", "10,000"],
+              ["Buffer", "Misc", "7,000"],
+              [<span className="text-emerald-600 uppercase text-[10px]">Total</span>, "", <span className="text-emerald-600 font-black">135,000</span>],
             ]}
             highlightLast
           />
@@ -589,20 +580,20 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full max-w-4xl px-6 mx-auto">
           <div className="space-y-6 text-center md:text-left">
             <PhaseLabel num="16" />
-            <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">Growth <span className="text-emerald-500">DIVERSE</span></h2>
+            <h2 className="text-4xl font-black text-black dark:text-white tracking-tighter uppercase leading-none">Growth <span className="text-emerald-500">DIVERSE</span></h2>
             <div className="space-y-2">
-              {[ { n: "RNIT", v: "25k", r: "11.7% Yield" }, { n: "Shares", v: "15k", r: "BK Group" }, { n: "Savings", v: "85k", r: "Liquid" } ].map((i) => (
+              {[ { n: "RNIT", v: "25,000", r: "11.7% Yield" }, { n: "Shares", v: "15,000", r: "BK Group" }, { n: "Savings", v: "85,000", r: "Liquid" } ].map((i) => (
                 <div key={i.n} className="p-4 rounded-xl bg-white dark:bg-zinc-900 border-2 border-zinc-100 dark:border-zinc-800 flex justify-between items-center text-xs font-bold uppercase shadow-sm">
-                  <div><span className="text-zinc-900 dark:text-white block text-lg">{i.n}</span><span className="text-emerald-500 tracking-widest text-[10px]">{i.r}</span></div>
-                  <span className="text-zinc-900 dark:text-white text-xl">{i.v}</span>
+                  <div><span className="text-black dark:text-white block text-lg">{i.n}</span><span className="text-emerald-500 tracking-widest text-[10px]">{i.r}</span></div>
+                  <span className="text-black dark:text-white text-xl">{i.v}</span>
                 </div>
               ))}
             </div>
             <SupportingText text="Diversifying into high-yield funds (RNIT) and local stocks (BK) provides both security and passive growth." />
           </div>
-          <div className="p-8 rounded-3xl bg-zinc-900 text-white border-b-8 border-emerald-500 text-center shadow-2xl">
+          <div className="p-8 rounded-3xl bg-zinc-100 dark:bg-white text-black border-b-8 border-emerald-500 text-center shadow-2xl border border-zinc-200 dark:border-transparent transition-colors">
             <h3 className="text-xs font-black uppercase mb-2 opacity-60">RNIT Cumulative Audit</h3>
-            <p className="text-4xl font-black text-emerald-400">+35,000 Yearly</p>
+            <p className="text-4xl font-black text-emerald-600 dark:text-emerald-500">+35,000 Yearly</p>
           </div>
         </div>
       ),
@@ -615,17 +606,17 @@ export default function App() {
       scale: 1,
       component: (
         <div className="w-full max-w-xl space-y-6 px-6 flex flex-col items-center mx-auto text-center">
-          <div><PhaseLabel num="17" /><h2 className="text-3xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">Wealth <span className="text-emerald-500">ACCUM</span></h2></div>
+          <div><PhaseLabel num="17" /><h2 className="text-3xl font-black text-black dark:text-white tracking-tighter uppercase leading-none">Wealth <span className="text-emerald-500">ACCUM</span></h2></div>
           <Table
             headers={["Milestone", "Fund", "Status"]}
             rows={[
-              ["3 Month Buffer", "120k", "PROJECTED"],
-              ["6 Month Buffer", "240k", "PROJECTED"],
-              ["12 Month Safety", "480k", "TARGET"],
+              ["3 Month Buffer", "120,000", "PROJECTED"],
+              ["6 Month Buffer", "240,000", "PROJECTED"],
+              ["12 Month Safety", "480,000", "TARGET"],
             ]}
             highlightLast
           />
-          <SupportingText text="By consistently saving, we reach a 'safety zone' of 480k RWF within a year, providing total financial peace of mind." />
+          <SupportingText text="By consistently saving, we reach a 'safety zone' of 480,000 RWF within a year, providing total financial peace of mind." />
         </div>
       ),
     },
@@ -638,11 +629,11 @@ export default function App() {
       component: (
         <div className="max-w-4xl w-full px-6 flex flex-col items-center mx-auto text-center">
           <PhaseLabel num="18" />
-          <h2 className="text-4xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic mb-6">Defense <span className="text-rose-500">STRATEGY</span></h2>
+          <h2 className="text-4xl font-black text-black dark:text-white tracking-tighter uppercase italic mb-6">Defense <span className="text-rose-500">STRATEGY</span></h2>
           <div className="grid grid-cols-2 gap-4 w-full">
             {[ { r: "Demand Shift", s: "Iterative Design." }, { r: "Production Delays", s: "Backup Partners." }, { r: "Waste Supply", s: "Institutional Contracts." }, { r: "Competition", s: "Quality Differentiation." } ].map((i) => (
               <div key={i.r} className="p-4 rounded-xl bg-white dark:bg-zinc-900 border-2 border-zinc-100 dark:border-zinc-800 text-xs font-bold uppercase shadow-sm text-left">
-                <h3 className="text-zinc-900 dark:text-white text-lg mb-1">{i.r}</h3>
+                <h3 className="text-black dark:text-white text-lg mb-1">{i.r}</h3>
                 <p className="text-zinc-500">{i.s}</p>
               </div>
             ))}
@@ -660,10 +651,10 @@ export default function App() {
       component: (
         <div className="max-w-xl text-center space-y-8 px-6 mx-auto">
           <PhaseLabel num="19" />
-          <div className="w-20 h-20 bg-zinc-900 dark:bg-white rounded-3xl mx-auto flex items-center justify-center text-white dark:text-zinc-900 shadow-2xl border-4 border-emerald-500">
+          <div className="w-20 h-20 bg-zinc-100 dark:bg-white rounded-3xl mx-auto flex items-center justify-center text-emerald-600 dark:text-emerald-500 shadow-2xl border-4 border-emerald-500 transition-colors">
             <CheckCircle2 size={48} />
           </div>
-          <h2 className="text-6xl font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-none">GOAL <span className="text-emerald-500">ACQUIRED</span></h2>
+          <h2 className="text-6xl font-black text-black dark:text-white tracking-tighter uppercase italic leading-none">GOAL <span className="text-emerald-500">ACQUIRED</span></h2>
           <p className="text-xl font-bold text-zinc-500 italic">"Stability within 12 months."</p>
           <div className="pt-6 border-t-2 border-zinc-200 dark:border-zinc-800 max-w-[150px] mx-auto text-[10px] font-black text-zinc-400 uppercase tracking-widest text-center">RCA FY26 / FINAL RELEASE</div>
         </div>
@@ -681,7 +672,7 @@ export default function App() {
         "relative w-full h-screen overflow-hidden font-sans select-none transition-colors duration-700",
         theme === "dark"
           ? "bg-zinc-900 text-zinc-100 dark"
-          : "bg-white text-zinc-900",
+          : "bg-white text-black",
       )}
     >
       {/* Progressive Progress Header */}
@@ -696,7 +687,7 @@ export default function App() {
       <nav className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
         <div className="flex items-center gap-2 bg-white/90 dark:bg-zinc-900/40 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 p-1.5 rounded-xl shadow-2xl pointer-events-auto transition-all">
           <button onClick={prev} className="p-3 rounded-lg bg-zinc-100 dark:bg-white/5 hover:bg-zinc-200 dark:hover:bg-white/10 text-zinc-400 active:scale-90 transition-all"><ArrowLeft size={16} /></button>
-          <button onClick={next} className="flex items-center gap-2 font-black text-[10px] uppercase tracking-widest bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-5 py-3 rounded-lg hover:bg-emerald-500 active:scale-95 transition-all">
+          <button onClick={next} className="flex items-center gap-2 font-black text-[10px] uppercase tracking-widest bg-zinc-900 dark:bg-white text-white dark:text-black px-5 py-3 rounded-lg hover:bg-emerald-500 active:scale-95 transition-all">
             <span>{activeSection === sections.length - 1 ? "RESET" : "NEXT PHASE"}</span>
             <ArrowRight size={14} />
           </button>
@@ -714,13 +705,58 @@ export default function App() {
       <AnimatePresence>
         {(activeSection === 6 || activeSection === 7) && (
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="fixed bottom-10 left-10 z-40 w-64 aspect-square rounded-2xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl pointer-events-none"
+            initial={{ opacity: 0, scale: 0.8, x: -20 }}
+            animate={{ opacity: 1, scale: 0.85, x: 0 }}
+            exit={{ opacity: 0, scale: 0.8, x: -20 }}
+            className="fixed bottom-[-5%] left-[-5%] z-0 w-[30vw] aspect-square pointer-events-none transition-all duration-700"
           >
-            <img src="/images/collected-jeans-pile.png" alt="Raw Denim" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-indigo-500/10" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-white via-transparent to-transparent dark:from-zinc-900 z-10" />
+            <img 
+              src="/images/collected-jeans-pile.png" 
+              alt="" 
+              className="w-full h-full object-contain grayscale opacity-25 dark:opacity-40 mix-blend-multiply dark:mix-blend-overlay" 
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Parallax BSF Video */}
+      <AnimatePresence>
+        {activeSection >= 8 && activeSection <= 11 && (
+          <motion.div
+            layoutId="bsf-video-container"
+            className="fixed z-40 overflow-hidden shadow-2xl pointer-events-none"
+            initial={{ 
+              top: "50%", 
+              right: "5%", 
+              width: "35vw", 
+              height: "60vh", 
+              y: "-50%",
+              borderRadius: "32px",
+              opacity: 0
+            }}
+            animate={{ 
+              top: activeSection === 8 ? "50%" : "85%",
+              right: activeSection === 8 ? "10%" : "5%",
+              left: "auto",
+              width: activeSection === 8 ? "35vw" : "250px",
+              height: activeSection === 8 ? "60vh" : "150px",
+              x: 0,
+              y: "-50%",
+              borderRadius: "32px",
+              opacity: 1
+            }}
+            exit={{ opacity: 0 }}
+            transition={{ type: "spring", stiffness: 40, damping: 20 }}
+          >
+            <video
+              src="/images/bsfl-farming.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
           </motion.div>
         )}
       </AnimatePresence>
