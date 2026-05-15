@@ -7,6 +7,8 @@ import {
   CheckCircle2,
   Sun,
   Moon,
+  Maximize2,
+  X,
 } from "lucide-react";
 import { cn } from "@/src/lib/utils";
 
@@ -94,6 +96,7 @@ export default function App() {
   const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
+  const [isVideoExpanded, setIsVideoExpanded] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -120,6 +123,7 @@ export default function App() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight" || e.key === " ") next();
       if (e.key === "ArrowLeft") prev();
+      if (e.key === "Escape") setIsVideoExpanded(false);
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
@@ -135,7 +139,7 @@ export default function App() {
       component: (
         <div className="relative flex flex-col items-center justify-center text-center w-full max-w-5xl mx-auto px-4 sm:px-6">
           {/* Responsive Bags */}
-          <div className="absolute inset-0 pointer-events-none -z-10 flex flex-col sm:block items-center justify-between py-12 sm:py-0">
+          <div className="absolute inset-0 pointer-events-none -z-10 flex flex-row sm:block items-end justify-center gap-4 py-8 sm:py-0">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 0.6, y: 0 }}
@@ -145,7 +149,7 @@ export default function App() {
               <img src="/images/bag2.png" alt="" className="w-full h-full object-contain" />
             </motion.div>
             <motion.div 
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 0.6, y: 0 }}
               transition={{ delay: 0.7, duration: 1 }}
               className="sm:absolute sm:right-[-10%] sm:top-1/2 sm:-translate-y-1/2 w-24 sm:w-32 md:w-48 aspect-square"
@@ -368,8 +372,41 @@ export default function App() {
       ),
     },
     {
+      id: "denim-intro",
+      title: "Phase 07: Portfolio 01 Intro",
+      x: 4500,
+      y: 3000,
+      scale: 1,
+      component: (
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="max-w-4xl text-center space-y-8 px-4 sm:px-8 relative z-10"
+        >
+          <PhaseLabel num="07" />
+          <h2 className="text-[clamp(2.5rem,6vw,5.5rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-[0.85]">
+            Engine 01 <br />
+            <span className="text-indigo-600 italic">DENIM BAGS</span>
+          </h2>
+          <div className="flex justify-center gap-4">
+             <div className="w-16 h-1 bg-indigo-600 rounded-full" />
+             <div className="w-4 h-1 bg-zinc-300 dark:bg-zinc-800 rounded-full" />
+          </div>
+          <p className="text-[clamp(1rem,1.5vw,1.4rem)] font-bold text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            The Denim project leverages upcycling to transform second-hand materials into high-margin lifestyle products.
+          </p>
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="inline-block px-8 py-4 bg-indigo-600 text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl"
+          >
+            Sustainability x Profit
+          </motion.div>
+        </motion.div>
+      ),
+    },
+    {
       id: "denim-materials",
-      title: "Phase 07: Portfolio 01 Materials",
+      title: "Phase 08: Material Inputs",
       x: 3000,
       y: 3000,
       scale: 1,
@@ -381,7 +418,7 @@ export default function App() {
         >
           <div className="w-full max-w-4xl space-y-6 sm:space-y-10 px-4 sm:px-8 flex flex-col items-center mx-auto text-center relative z-10" >
             <div>
-              <PhaseLabel num="07" />
+              <PhaseLabel num="08" />
               <h2 className="text-[clamp(1.8rem,3.5vw,3.5rem)] font-black text-zinc-900 dark:text-white uppercase leading-none">
                 Material <span className="text-indigo-600">INPUTS</span>
               </h2>
@@ -405,14 +442,14 @@ export default function App() {
               ]}
               highlightLast
             />
-            <SupportingText text="The Denim Bags project collects second-hand jeans and transforms them into reusable bags. This table details the raw material consumption for a production cycle." />
+            <SupportingText text="This table details the raw material consumption for a single production cycle of upcycled denim bags." />
           </div>
         </motion.div>
       ),
     },
     {
       id: "denim-labour",
-      title: "Phase 08: Labour Logic",
+      title: "Phase 09: Labour Logic",
       x: 0,
       y: 3000,
       scale: 1,
@@ -424,7 +461,7 @@ export default function App() {
               whileInView={{ opacity: 1, x: 0 }}
               className="space-y-6 sm:space-y-8 text-center lg:text-left"
             >
-              <PhaseLabel num="08" />
+              <PhaseLabel num="09" />
               <h2 className="text-[clamp(2rem,4.5vw,4.5rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">
                 Tailor <br />
                 <span className="text-indigo-600">LOGIC</span>
@@ -454,7 +491,7 @@ export default function App() {
                   </span>
                 </motion.div>
               </div>
-              <SupportingText text="Total Production Cost (345,000) vs Revenue (400,000) yields a 55,000 RWF profit per cycle. This is the first engine of our sustainability plan." />
+              <SupportingText text="Total Production Cost (345,000) vs Revenue (400,000) yields a 55,000 RWF profit per cycle." />
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, x: 30 }}
@@ -481,7 +518,7 @@ export default function App() {
     },
     {
       id: "bsf-problem",
-      title: "Phase 09: BSF Introduction",
+      title: "Phase 10: BSF Introduction",
       x: -3000,
       y: 3000,
       scale: 1,
@@ -492,7 +529,7 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             className="space-y-6 sm:space-y-10 text-center md:text-left"
           >
-            <PhaseLabel num="09" />
+            <PhaseLabel num="10" />
             <h2 className="text-[clamp(2rem,4.5vw,4.5rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">
               BSF{" "}
               <span className="text-emerald-500">
@@ -535,7 +572,7 @@ export default function App() {
     },
     {
       id: "waste-logistics",
-      title: "Phase 10: Waste Sourcing",
+      title: "Phase 11: Waste Sourcing",
       x: -6000,
       y: 3000,
       scale: 1,
@@ -546,7 +583,7 @@ export default function App() {
             whileInView={{ opacity: 1, x: 0 }}
             className="space-y-6 sm:space-y-10 text-center lg:text-left order-2 lg:order-1"
           >
-            <PhaseLabel num="10" />
+            <PhaseLabel num="11" />
             <h2 className="text-[clamp(2rem,4.5vw,4.5rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">
               Waste <br />
               <span className="text-emerald-500 italic">SOURCING</span>
@@ -590,7 +627,7 @@ export default function App() {
     },
     {
       id: "bsf-startup-costs",
-      title: "Phase 11: Startup Costs",
+      title: "Phase 12: Startup Costs",
       x: -9000,
       y: 3000,
       scale: 1,
@@ -601,7 +638,7 @@ export default function App() {
           className="flex flex-col items-center justify-center w-full max-w-4xl px-4 sm:px-8 mx-auto space-y-8 sm:space-y-12 relative z-10"
         >
           <div className="text-center w-full">
-            <PhaseLabel num="11" />
+            <PhaseLabel num="12" />
             <h2 className="text-[clamp(2rem,4.5vw,4.5rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-none">
               BSF <span className="text-emerald-500">STARTUP COSTS</span>
             </h2>
@@ -631,7 +668,7 @@ export default function App() {
     },
     {
       id: "bsf-production",
-      title: "Phase 12: Yield Audit",
+      title: "Phase 13: Yield Audit",
       x: -9000,
       y: 6000,
       scale: 1,
@@ -642,7 +679,7 @@ export default function App() {
             whileInView={{ opacity: 1, x: 0 }}
             className="space-y-6 sm:space-y-10 text-center lg:text-left"
           >
-            <PhaseLabel num="12" />
+            <PhaseLabel num="13" />
             <h2 className="text-[clamp(2.5rem,5.5vw,5rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-[0.85]">
               Bio <span className="text-emerald-500 italic">YIELD</span>
             </h2>
@@ -695,7 +732,7 @@ export default function App() {
     },
     {
       id: "revenue-shift",
-      title: "Phase 13: Target Revenue",
+      title: "Phase 14: Target Revenue",
       x: -6000,
       y: 6000,
       scale: 1,
@@ -706,7 +743,7 @@ export default function App() {
             whileInView={{ opacity: 1, x: 0 }}
             className="space-y-6 sm:space-y-8 text-center lg:text-left"
           >
-            <PhaseLabel num="13" />
+            <PhaseLabel num="14" />
             <h2 className="text-[clamp(2rem,4.5vw,5rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic leading-none">
               Income <br />
               <span className="text-emerald-500">SHIFT</span>
@@ -737,7 +774,7 @@ export default function App() {
     },
     {
       id: "new-budget",
-      title: "Phase 14: Strategic Budget",
+      title: "Phase 15: Strategic Budget",
       x: -3000,
       y: 6000,
       scale: 1,
@@ -748,7 +785,7 @@ export default function App() {
           className="w-full max-w-4xl space-y-6 sm:space-y-10 px-4 sm:px-8 flex flex-col items-center mx-auto text-center relative z-10"
         >
           <div>
-            <PhaseLabel num="14" />
+            <PhaseLabel num="15" />
             <h2 className="text-[clamp(2rem,4.5vw,4rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic">
               Revised <span className="text-emerald-500">SPEND</span>
             </h2>
@@ -777,7 +814,7 @@ export default function App() {
     },
     {
       id: "wealth-engine",
-      title: "Phase 15: Prosperity Engine",
+      title: "Phase 16: Prosperity Engine",
       x: 0,
       y: 6000,
       scale: 1,
@@ -787,7 +824,7 @@ export default function App() {
           whileInView={{ opacity: 1, scale: 1 }}
           className="flex flex-col items-center gap-6 sm:gap-10 text-center px-4 sm:px-8 max-w-sm sm:max-w-xl mx-auto relative z-10"
         >
-          <PhaseLabel num="15" />
+          <PhaseLabel num="16" />
           <div className="p-10 sm:p-16 md:p-20 rounded-[40px] bg-emerald-600 text-white shadow-2xl w-full relative overflow-hidden border-4 border-emerald-400">
             <h2 className="text-[clamp(1rem,1.8vw,1.4rem)] font-black mb-2 uppercase tracking-[0.3em] opacity-80">
               SURPLUS
@@ -805,7 +842,7 @@ export default function App() {
     },
     {
       id: "investments",
-      title: "Phase 16: Growth Strategy",
+      title: "Phase 17: Growth Strategy",
       x: 3000,
       y: 6000,
       scale: 1,
@@ -816,7 +853,7 @@ export default function App() {
             whileInView={{ opacity: 1, x: 0 }}
             className="space-y-6 sm:space-y-10 text-center lg:text-left"
           >
-            <PhaseLabel num="16" />
+            <PhaseLabel num="17" />
             <h2 className="text-[clamp(2rem,4.5vw,4rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">
               Growth <br />
               <span className="text-emerald-500 italic">DIVERSE</span>
@@ -868,7 +905,7 @@ export default function App() {
     },
     {
       id: "savings-path",
-      title: "Phase 17: Accumulation Path",
+      title: "Phase 18: Accumulation Path",
       x: 6000,
       y: 6000,
       scale: 1,
@@ -879,7 +916,7 @@ export default function App() {
           className="w-full max-w-4xl space-y-6 sm:space-y-10 px-4 sm:px-8 flex flex-col items-center mx-auto text-center relative z-10"
         >
           <div>
-            <PhaseLabel num="17" />
+            <PhaseLabel num="18" />
             <h2 className="text-[clamp(2rem,4.5vw,4rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase leading-none">
               Wealth <span className="text-emerald-500 italic">ACCUM</span>
             </h2>
@@ -899,7 +936,7 @@ export default function App() {
     },
     {
       id: "risk-audit",
-      title: "Phase 18: Risk Strategy",
+      title: "Phase 19: Risk Strategy",
       x: 9000,
       y: 6000,
       scale: 1,
@@ -909,7 +946,7 @@ export default function App() {
           whileInView={{ opacity: 1 }}
           className="max-w-6xl w-full px-4 sm:px-8 flex flex-col items-center mx-auto text-center relative z-10"
         >
-          <PhaseLabel num="18" />
+          <PhaseLabel num="19" />
           <h2 className="text-[clamp(2rem,4.5vw,4rem)] font-black text-zinc-900 dark:text-white tracking-tighter uppercase italic mb-8 sm:mb-10 leading-none">
             Defense <span className="text-rose-500">STRATEGY</span>
           </h2>
@@ -943,7 +980,7 @@ export default function App() {
     },
     {
       id: "conclusion",
-      title: "Phase 19: Strategic Resolution",
+      title: "Phase 20: Strategic Resolution",
       x: 12000,
       y: 6000,
       scale: 1,
@@ -953,7 +990,7 @@ export default function App() {
           whileInView={{ opacity: 1, scale: 1 }}
           className="max-w-3xl text-center space-y-8 sm:space-y-12 px-4 sm:px-8 mx-auto relative z-10"
         >
-          <PhaseLabel num="19" />
+          <PhaseLabel num="20" />
           <motion.div 
             whileHover={{ rotate: 360, scale: 1.1 }}
             transition={{ duration: 1 }}
@@ -1055,44 +1092,81 @@ export default function App() {
 
       {/* Parallax BSF Video */}
       <AnimatePresence>
-        {activeSection >= 8 && activeSection <= 11 && (
+        {activeSection >= 9 && activeSection <= 12 && (
           <motion.div
+            layout
             layoutId="bsf-video-container"
-            className="fixed z-40 overflow-hidden shadow-2xl pointer-events-none"
-            initial={{
-              top: isMobile ? "auto" : "50%",
-              bottom: isMobile ? "5%" : "auto",
-              right: isMobile ? "50%" : "5%",
-              x: isMobile ? "50%" : 0,
-              width: isMobile ? "90vw" : "35vw",
-              height: isMobile ? "200px" : "60vh",
-              y: isMobile ? 0 : "-50%",
-              borderRadius: "32px",
-              opacity: 0,
+            className={cn(
+              "fixed z-50 overflow-hidden shadow-2xl transition-all duration-700",
+              isVideoExpanded 
+                ? "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-4xl aspect-[4/3] rounded-[40px] pointer-events-auto" 
+                : isMobile
+                  ? "bottom-12 right-8 w-20 h-16 rounded-2xl pointer-events-auto cursor-pointer group bg-zinc-900 shadow-[0_0_30px_rgba(16,185,129,0.3)] border-2 border-emerald-500/30 hover:border-emerald-500"
+                  : activeSection === 9
+                    ? "top-1/2 right-[10%] -translate-y-1/2 w-[30vw] aspect-[4/5] rounded-[40px] pointer-events-auto cursor-pointer group"
+                    : "bottom-12 left-12 w-48 h-36 rounded-3xl pointer-events-auto cursor-pointer group border-2 border-zinc-200 dark:border-zinc-800 hover:border-emerald-500"
+            )}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1,
             }}
-            animate={{
-              top: isMobile ? "auto" : (activeSection === 8 ? "50%" : "85%"),
-              bottom: isMobile ? "40px" : "auto",
-              right: isMobile ? "50%" : (activeSection === 8 ? "10%" : "5%"),
-              left: "auto",
-              x: isMobile ? "50%" : 0,
-              width: isMobile ? "calc(100vw - 32px)" : (activeSection === 8 ? "35vw" : "200px"),
-              height: isMobile ? "180px" : (activeSection === 8 ? "60vh" : "130px"),
-              y: isMobile ? 0 : "-50%",
-              borderRadius: "32px",
-              opacity: 1,
-            }}
-            exit={{ opacity: 0 }}
-            transition={{ type: "spring", stiffness: 40, damping: 20 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={() => !isVideoExpanded && setIsVideoExpanded(true)}
           >
-            <video
-              src="/images/bsfl-farming.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
+            <div className="relative w-full h-full">
+              <video
+                src="/images/bsfl-farming.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+              
+              {/* Overlay Controls */}
+              <div className={cn(
+                "absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2",
+                !isVideoExpanded && isMobile && "opacity-100 bg-black/20",
+                !isVideoExpanded && !isMobile && "group-hover:bg-black/20"
+              )}>
+                {!isVideoExpanded && (
+                  <div className="flex flex-col items-center">
+                    <Maximize2 size={(isMobile || activeSection > 9) ? 12 : 24} className="text-white mb-1" />
+                    <span className={cn(
+                      "font-black text-white uppercase tracking-tighter text-center leading-none",
+                      (isMobile || activeSection > 9) ? "text-[7px]" : "text-[10px]"
+                    )}>
+                      {(isMobile || activeSection > 9) ? "CONTINUE" : "VIEW FULL"}<br />SCREEN
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {isVideoExpanded && (
+                <>
+                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-3 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full whitespace-nowrap">
+                    <span className="text-[10px] font-black text-white uppercase tracking-[0.3em]">
+                      BSF Production Cycle • LIVE
+                    </span>
+                  </div>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsVideoExpanded(false);
+                    }}
+                    className="absolute top-6 right-6 p-4 bg-black/40 hover:bg-black/60 backdrop-blur-xl rounded-2xl text-white transition-all z-10 border border-white/10"
+                  >
+                    <X size={24} />
+                  </button>
+                </>
+              )}
+
+              {/* Status Badge when Minimized (Mobile or Small Desktop) */}
+              {!isVideoExpanded && (isMobile || activeSection > 9) && (
+                <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-emerald-500 rounded-full shadow-[0_0_10px_#10b981]" />
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -1122,7 +1196,7 @@ export default function App() {
             <div className="w-screen h-screen flex items-center justify-center pb-24 sm:pb-32 pt-16 sm:pt-12 px-4 sm:px-12">
               <div className={cn(
                 "w-full h-full flex flex-col items-center justify-center",
-                isMobile && activeSection >= 8 && activeSection <= 11 && "pb-48"
+                isMobile && activeSection >= 9 && activeSection <= 12 && !isVideoExpanded && "pb-24"
               )}>
                 {section.component}
               </div>
