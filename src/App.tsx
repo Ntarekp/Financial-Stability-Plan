@@ -899,7 +899,7 @@ export default function App() {
               RNIT Cumulative Audit
             </h3>
             <p className="text-[clamp(2rem,3.5vw,4.5rem)] font-black text-emerald-600 dark:text-emerald-500 tracking-tighter leading-none tabular-nums">
-              +35,000 Yearly
+              205,000 FRW
             </p>
           </motion.div>
         </div>
