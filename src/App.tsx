@@ -342,7 +342,7 @@ export default function App() {
             <div className="space-y-3 w-full">
               {[
                 { n: "Debt", v: "150,000" },
-                { n: "Buffer", v: "150,000" },
+                { n: "Emergency Fund", v: "150,000" },
                 { n: "Invest", v: "1,200,000" },
               ].map((i, idx) => (
                 <motion.div
@@ -357,7 +357,7 @@ export default function App() {
                 </motion.div>
               ))}
             </div>
-            <SupportingText text="A 1,500,000 RWF seed fund is allocated to clear debt, create a buffer, and fuel the main investment engines." />
+            <SupportingText text="A 1,500,000 RWF seed fund is allocated to clear debt, create am emergency, and fuel the main investment engines." />
           </div>
           <motion.div 
             whileHover={{ scale: 1.05, rotate: 0 }}
@@ -432,7 +432,7 @@ export default function App() {
                 ["Inner lining fabric", "15,000"],
                 ["Handles/straps", "10,000"],
                 ["Labels & decorations", "10,000"],
-                ["Labels, Deco & Packaging", "20,000"],
+                ["Cleaning", "20,000"],
                 ["Marketing & Transport", "40,000"],
                 ["Extra material reserve", "50,000"],
                 [
@@ -718,7 +718,7 @@ export default function App() {
               headers={["Param", "Basis", "Value"]}
               rows={[
                 ["Target", "Output", "70 KG"],
-                ["Gross", "@ 2,500", "175,000"],
+                ["Gross", "2,500", "175,000"],
                 ["Ops", "Logistics", "30,000"],
                 [
                   <span className="text-emerald-600 uppercase text-[11px] font-black">Profit</span>,
@@ -762,7 +762,7 @@ export default function App() {
               rows={[
                 ["Original Support", "60,000"],
                 ["Denim Project", "55,000"],
-                ["BSF Startup", "145,000"],
+                ["BSF Startup 1st month", "145,000"],
                 [
                   <span className="text-emerald-600 uppercase text-[11px] font-black tracking-widest">New Total</span>,
                   <span className="text-emerald-600 font-black text-3xl sm:text-4xl tracking-tighter">260,000</span>,
@@ -796,12 +796,11 @@ export default function App() {
             headers={["Category", "Basis", "Amount"]}
             rows={[
               ["Transport", "Commute", "18,000"],
-              ["Food", "Nutrition", "25,000"],
+              ["Food", "Nutrition", "32,000"],
               ["Data", "Research", "10,000"],
               ["Growth", "R&D", "35,000"],
               ["Stability", "Wealth", "30,000"],
               ["Emergency", "Savings", "10,000"],
-              ["Buffer", "Misc", "7,000"],
               [
                 <span className="text-emerald-600 uppercase text-[11px] font-black tracking-widest">Total</span>,
                 "",
@@ -926,8 +925,8 @@ export default function App() {
           <Table
             headers={["Milestone", "Fund", "Status"]}
             rows={[
-              ["3 Month Buffer", "120,000", "PROJECTED"],
-              ["6 Month Buffer", "240,000", "PROJECTED"],
+              ["3 Month Emergency", "120,000", "PROJECTED"],
+              ["6 Month Emergency", "240,000", "PROJECTED"],
               ["12 Month Safety", "480,000", "TARGET"],
             ]}
             highlightLast
