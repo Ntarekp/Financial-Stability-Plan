@@ -165,8 +165,8 @@ export default function App() {
             <PhaseLabel num="01" />
             <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-black text-zinc-900 dark:text-white tracking-tighter leading-[0.9] uppercase transition-colors">
               Financial <br />
-              <span className="text-emerald-500 italic">Sustainability</span> <br />
-              <span className="text-zinc-500 dark:text-zinc-400">Strategy</span>
+              <span className="text-emerald-500 italic">Aguka</span> <br />
+              <span className="text-zinc-500 dark:text-zinc-400">Project</span>
             </h1>
             <p className="text-zinc-600 dark:text-zinc-400 text-[clamp(0.7rem,1.2vw,0.85rem)] max-w-xs mx-auto font-bold uppercase tracking-[0.3em] transition-colors">
               A 19-Phase framework for capital stability.
@@ -482,6 +482,8 @@ export default function App() {
                   className="p-5 sm:p-6 rounded-3xl bg-emerald-100 dark:bg-emerald-600 text-emerald-900 dark:text-white shadow-lg inline-block border-2 border-emerald-200 dark:border-transparent transform rotate-1"
                 >
                   <span className="text-[11px] font-black uppercase opacity-60 italic">Calculation</span>
+                  <p><b>40Bags = 10,000 each = 400,000FRW</b></p>
+              
                   <p className="text-xl sm:text-2xl font-black tracking-tighter mt-1 leading-none">
                     400,000 <span className="opacity-40">-</span> 345,000{" "}
                     <span className="opacity-40">=</span> 55,000
@@ -861,7 +863,7 @@ export default function App() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
               {[
                 { n: "Shares", v: "50,000", r: "BK Group" },
-                { n: "RNIT", v: ",50,000", r: "11.7% Yield" },
+                { n: "RNIT", v: "50,000", r: "11.7% Yield" },
                 { n: "Savings", v: "55,000", r: "Liquid" },
               ].map((i, idx) => (
                 <motion.div
