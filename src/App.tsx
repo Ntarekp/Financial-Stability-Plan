@@ -860,9 +860,9 @@ export default function App() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
               {[
-                { n: "RNIT", v: "25,000", r: "11.7% Yield" },
-                { n: "Shares", v: "15,000", r: "BK Group" },
-                { n: "Savings", v: "85,000", r: "Liquid" },
+                { n: "Shares", v: "50,000", r: "BK Group" },
+                { n: "RNIT", v: ",50,000", r: "11.7% Yield" },
+                { n: "Savings", v: "55,000", r: "Liquid" },
               ].map((i, idx) => (
                 <motion.div
                   key={i.n}
